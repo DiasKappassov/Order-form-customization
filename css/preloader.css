@@ -1,0 +1,62 @@
+lesshat-selector {
+  -lh-property: 0; } 
+@-webkit-keyframes spin{ 0%{ -webkit-transform: rotate(0deg); } 100%{ -webkit-transform: rotate(360deg); }}
+@-moz-keyframes spin{ 0%{ -moz-transform: rotate(0deg); } 100%{ -moz-transform: rotate(360deg); }}
+@-o-keyframes spin{ 0%{ -o-transform: rotate(0deg); } 100%{ -o-transform: rotate(360deg); }}
+@keyframes spin{ 0%{-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-ms-transform: rotate(0deg);transform: rotate(0deg); } 100%{-webkit-transform: rotate(360deg);-moz-transform: rotate(360deg);-ms-transform: rotate(360deg);transform: rotate(360deg); };
+}
+#crowdfund-preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1b1b1b;
+  z-index: 1000;
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -o-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: -webkit-transform 1s ease;
+  -moz-transition: -moz-transform 1s ease;
+  -o-transition: -o-transform 1s ease;
+  transition: -webkit-transform 1s ease,-moz-transform 1s ease,-o-transform 1s ease,transform 1s ease;
+}
+#crowdfund-preloader .crowdfund-preloader-spin {
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -1.5rem;
+  margin-top: -1.5rem;
+  border-radius: 50%;
+  border: 2px solid #d0301b;
+  border-color: #d0301b transparent;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-animation: spin 1s infinite cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  -moz-animation: spin 1s infinite cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  -o-animation: spin 1s infinite cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  animation: spin 1s infinite cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+#crowdfund-preloader.loaded {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+#crowdfund-preloader.hidden {
+  display: none;
+}

@@ -1,0 +1,4606 @@
+/*------------------------------------------------------------------
+
+[Master Stylesheet]
+
+Project:	Crowdfund template
+Version:	1.2.0
+Last change:	01 Oct 2017
+Author: iltaen (https://themeforest.net/user/iltaen)
+
+
+------------------------------------------------------------------
+
+[Table of contents]
+
+1. Main styles
+  1.1 HTML
+  1.2 Body
+  1.3 Headers
+  1.4 Paragraph
+  1.5 Sections
+2. UI elements
+  2.1 Inputs
+    2.1.1 input text / .inputs-text
+    2.1.2 textarea
+    2.1.3 submit button / input[type="submit"
+    2.1.4 radio / .crowdfund-radio
+    2.1.5 checkbox / .crowdfund-check
+  2.2 Progressbar / .crowdfund-progress
+  2.3 Message / .crowdfund-msg
+  2.4 Tab / .crowdfund-tab
+  2.5 Accordion / .crowdfund-accordion
+  2.6 Tag / .crowdfund-tag
+3. Grid / .crowdfund-table
+4. Menu / .crowdfund-menu
+5. Blog section / .crowdfund-section-blog
+6. Contacts section / .crowdfund-section-contacts
+7. Features section / .crowdfund-section-features
+8. Goals section / .crowdfund-section-goals
+9. Home section / .crowdfund-section-home
+10. Map section / .crowdfund-section-map
+11. Partners carousel / .crowdfund-carousel-partners
+12. Portfolio section / .crowdfund-section-portfolio
+  12.1 Portfolio filter / .crowdfund-portfolio-filter
+  12.2 Portfolio item / .crowdfund-portfolio-item
+13. Price / .crowdfund-price-item
+14. Rewards / .crowdfund-rewards-table
+15. Slider / .crowdfund-section-slider
+  15.1 Default carousel / .crowdfund-carousel
+  15.2 Flyer carousel / .crowdfund-carousel-flyer
+  15.3 Slide item / .crowdfund-slide
+16. Statistic section / .crowdfund-section-statistic
+17. Team carousel / .crowdfund-carousel-team
+18. Testimonials carousel / .crowdfund-carousel-testimonials
+19. Timeline section / .crowdfund-section-timeline
+20. Title section / .crowdfund-section-title
+21. UI section / .crowdfund-section-ui
+22. Video section / .crowdfund-section-video
+23. Footer / .crowdfund-section-footer
+
+------------------------------------------------------*/
+/*
+[Color mixins]
+*/
+.bg-color-red {
+  background-color: #d0301b !important;
+}
+.fg-color-red {
+  color: #d0301b;
+}
+.bg-color-red-dark {
+  background-color: #a32615 !important;
+}
+.fg-color-red-dark {
+  color: #a32615;
+}
+.bg-color-green {
+  background-color: #aacf2f !important;
+}
+.fg-color-green {
+  color: #aacf2f;
+}
+.bg-color-green-dark {
+  background-color: #88a526 !important;
+}
+.fg-color-green-dark {
+  color: #88a526;
+}
+.bg-color-blue {
+  background-color: #1161d6 !important;
+}
+.fg-color-blue {
+  color: #1161d6;
+}
+.bg-color-blue-dark {
+  background-color: #0d4ca7 !important;
+}
+.fg-color-blue-dark {
+  color: #0d4ca7;
+}
+.bg-color-yellow {
+  background-color: #f7c655 !important;
+}
+.fg-color-yellow {
+  color: #f7c655;
+}
+.bg-color-yellow-dark {
+  background-color: #dc9c0a !important;
+}
+.fg-color-yellow-dark {
+  color: #dc9c0a;
+}
+.bg-color-purple {
+  background-color: #be56bb !important;
+}
+.fg-color-purple {
+  color: #be56bb;
+}
+.bg-color-purple-dark {
+  background-color: #a33fa0 !important;
+}
+.fg-color-purple-dark {
+  color: #a33fa0;
+}
+.bg-color-white {
+  background-color: #fff !important;
+}
+.fg-color-white {
+  color: #fff;
+}
+.bg-color-black-light {
+  background-color: #2b2b2b !important;
+}
+.fg-color-black-light {
+  color: #2b2b2b;
+}
+.bg-color-black {
+  background-color: #1b1b1b !important;
+}
+.fg-color-black {
+  color: #1b1b1b;
+}
+.bg-color-cloud {
+  background-color: #e5e5e5 !important;
+}
+.fg-color-cloud {
+  color: #e5e5e5;
+}
+.bg-color-smoke-light {
+  background-color: #f1f1f1 !important;
+}
+.fg-color-smoke-light {
+  color: #f1f1f1;
+}
+.bg-color-smoke {
+  background-color: #ddd !important;
+}
+.fg-color-smoke {
+  color: #ddd;
+}
+.bg-color-smoke-dark {
+  background-color: #bbb !important;
+}
+.fg-color-smoke-dark {
+  color: #bbb;
+}
+.bg-color-gray-dark {
+  background-color: #131516 !important;
+}
+.fg-color-gray-dark {
+  color: #131516;
+}
+.bg-color-gray {
+  background-color: #444 !important;
+}
+.fg-color-gray {
+  color: #444;
+}
+.bg-color-gray-light {
+  background-color: #8e8e8e !important;
+}
+.fg-color-gray-light {
+  color: #8e8e8e;
+}
+.bg-color-basic {
+  background-color: #d0301b !important;
+}
+.fg-color-basic {
+  color: #d0301b;
+}
+/*
+
+.theme-color({
+
+});
+
+.theme-light({
+
+});
+
+.theme-dark({
+
+});
+
+.theme-transparent({
+
+});
+
+*/
+/*
+[1. Main styles]
+[1.1 HTML]
+*/
+html {
+  font-size: 18px;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2),
+														(min-resolution: 120dpi) {
+  html {
+    font-size: 16px;
+  }
+}
+/*
+[1.2 Body]
+*/
+body {
+  background-color: #131516;
+  color: #f1f1f1;
+  position: relative;
+}
+/*
+[1.3 Headers]
+*/
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+}
+h1,
+.crowdfund-h1 {
+  font-size: 4rem;
+  letter-spacing: 0.3rem;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  display: block;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  h1,
+  .crowdfund-h1 {
+    font-size: 3rem;
+  }
+}
+h2,
+.crowdfund-h2 {
+  font-size: 2.65rem;
+  letter-spacing: 0.1rem;
+  line-height: 1.3;
+  margin-bottom: 2rem;
+  display: block;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  h2,
+  .crowdfund-h2 {
+    font-size: 2.2rem;
+  }
+}
+h3,
+.crowdfund-h3 {
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  display: block;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  h3,
+  .crowdfund-h3 {
+    font-size: 1.6rem;
+  }
+}
+h4,
+.crowdfund-h4 {
+  font-size: 1.65rem;
+  letter-spacing: 0.1rem;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  display: block;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  h4,
+  .crowdfund-h4 {
+    font-size: 1.3rem;
+  }
+}
+h5,
+.crowdfund-h5 {
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+  letter-spacing: 0.05rem;
+  display: block;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  h5,
+  .crowdfund-h5 {
+    font-size: 1.1rem;
+  }
+}
+h6,
+.screen-iphone6 {
+  font-size: 1.2rem;
+  line-height: 1.3;
+  letter-spacing: 0.05rem;
+  display: block;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  h6,
+  .screen-iphone6 {
+    font-size: 1.05rem;
+  }
+}
+a {
+  text-decoration: none;
+  color: #d0301b;
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+}
+a:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+.crowdfund-section-color a,
+body .crowdfund-block-color a {
+  color: #fff;
+}
+.crowdfund-section-color a:hover,
+body .crowdfund-block-color a:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+.crowdfund-section-light a,
+body .crowdfund-block-light a {
+  color: #d0301b;
+}
+.crowdfund-section-light a:hover,
+body .crowdfund-block-light a:hover {
+  color: rgba(27, 27, 27, 0.7);
+}
+.crowdfund-section-dark a,
+body .crowdfund-block-dark a {
+  color: #d0301b;
+  font-weight: bolder;
+}
+.crowdfund-section-dark a:hover,
+body .crowdfund-block-dark a:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+.crowdfund-section-transparent a,
+body .crowdfund-block-transparent a {
+  color: #d0301b;
+}
+.crowdfund-section-transparent a:hover,
+body .crowdfund-block-transparent a:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+/*
+[1.4 Paragraph]
+*/
+p {
+  line-height: 1.5;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+p:first-child {
+  margin-top: 0;
+}
+p.crowdfund-large {
+  font-size: 1.35rem;
+}
+p.crowdfund-small {
+  line-height: 1.7;
+  font-size: 0.8rem;
+}
+p + p {
+  margin-top: 1rem;
+}
+p a {
+  text-decoration: underline;
+}
+.crowdfund-text-large {
+  font-size: 1.35rem;
+}
+.crowdfund-text-small {
+  font-size: 0.8rem;
+}
+::selection {
+  background: rgba(208, 48, 27, 0.9);
+  /* WebKit/Blink Browsers */
+  color: #fff;
+}
+::-moz-selection {
+  background: rgba(208, 48, 27, 0.9);
+  /* Gecko Browsers */
+  color: #fff;
+}
+input,
+textarea {
+  font-size: 18px;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+input:focus,
+textarea:focus {
+  outline: none !important;
+}
+hr {
+  border-top-color: rgba(68, 68, 68, 0.1);
+  border-width: 1px 0 0 0;
+}
+hr.crowdfund-hr {
+  margin: 3rem 0;
+}
+small {
+  font-size: 80%;
+}
+.crowdfund-button-big {
+  padding: 1.5rem 3rem;
+  font-size: 1.35rem;
+}
+strong,
+.strong {
+  font-weight: 700;
+}
+.italic {
+  font-style: italic;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+/*
+[1.5 Sections]
+*/
+section {
+  position: relative;
+}
+.crowdfund-section {
+  position: relative;
+}
+.crowdfund-section .crowdfund-section-content {
+  margin: 0 auto;
+  padding: 7.5rem 0;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-section .crowdfund-section-content {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+.crowdfund-section-color {
+  background-color: rgba(208, 48, 27, 0.95);
+  color: #f1f1f1;
+}
+.crowdfund-section-light {
+  background-color: #fff;
+  color: #444;
+}
+.crowdfund-section-dark {
+  background-color: rgba(19, 21, 22, 0.9);
+  color: #f1f1f1;
+}
+.crowdfund-section-transparent {
+  background-color: transparent;
+  color: #f1f1f1;
+}
+.crowdfund-block-color {
+  background-color: rgba(208, 48, 27, 0.95);
+  color: #f1f1f1;
+}
+.crowdfund-block-light {
+  background-color: #fff;
+  color: #444;
+}
+.crowdfund-block-dark {
+  background-color: rgba(19, 21, 22, 0.9);
+  color: #f1f1f1;
+}
+.crowdfund-block-transparent {
+  background-color: transparent;
+  color: #f1f1f1;
+}
+.crowdfund-body-background {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-carousel-bg {
+    display: none;
+  }
+}
+.crowdfund-background-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(19, 21, 22, 0.8);
+}
+.crowdfund-inline {
+  display: inline;
+}
+.crowdfund-title {
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.crowdfund-title .crowdfund-underline {
+  margin-top: 0;
+}
+.crowdfund-content-padding {
+  padding-left: 4.5rem;
+  padding-right: 4.5rem;
+}
+@media only screen
+														and (max-device-width: 1024px)
+														and (max-aspect-ratio: 13/9)  {
+  .crowdfund-content-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+.crowdfund-content-padding-small {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+@media only screen
+														and (max-device-width: 1024px)
+														and (max-aspect-ratio: 13/9)  {
+  .crowdfund-content-padding-small {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+.crowdfund-content-padding-vert {
+  padding: 4.5rem 0;
+}
+@media only screen
+														and (max-device-width: 1024px)
+														and (max-aspect-ratio: 13/9)  {
+  .crowdfund-content-padding-vert {
+    padding: 2rem 0;
+  }
+}
+.crowdfund-content-padding-vert-small {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+@media only screen
+														and (max-device-width: 1024px)
+														and (max-aspect-ratio: 13/9)  {
+  .crowdfund-content-padding-vert-small {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+.crowdfund-content-footer {
+  margin-top: 4rem;
+}
+.crowdfund-underline {
+  display: inline-block;
+  vertical-align: top;
+  width: 9rem;
+  height: 2px;
+  background-color: #d0301b;
+  line-height: 0;
+  margin: 1rem 0 3rem;
+}
+.crowdfund-section-color .crowdfund-underline,
+body .crowdfund-block-color .crowdfund-underline {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.crowdfund-section-light .crowdfund-underline,
+body .crowdfund-block-light .crowdfund-underline {
+  background-color: #d0301b;
+}
+.crowdfund-section-dark .crowdfund-underline,
+body .crowdfund-block-dark .crowdfund-underline {
+  background-color: #d0301b;
+}
+.crowdfund-section-transparent .crowdfund-underline,
+body .crowdfund-block-transparent .crowdfund-underline {
+  background-color: #d0301b;
+}
+.crowdfund-underline:after {
+  content: "";
+  position: relative;
+  vertical-align: top;
+  width: 97%;
+  height: 2px;
+  margin-top: 4px;
+  display: inline-block;
+  background-color: inherit;
+}
+.crowdfund-underline.crowdfund-underline-small {
+  height: 1px;
+}
+.crowdfund-underline.crowdfund-underline-small:after {
+  height: 1px;
+  margin-top: 2px;
+}
+.crowdfund-underline.crowdfund-underline-light {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.crowdfund-underline.crowdfund-underline-left {
+  text-align: left;
+}
+.crowdfund-vertline {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  height: 100%;
+  min-height: 10rem;
+  margin-left: -1px;
+  width: 2px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.crowdfund-section-color .crowdfund-vertline,
+body .crowdfund-block-color .crowdfund-vertline {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.crowdfund-section-light .crowdfund-vertline,
+body .crowdfund-block-light .crowdfund-vertline {
+  background-color: rgba(27, 27, 27, 0.2);
+}
+.crowdfund-section-dark .crowdfund-vertline,
+body .crowdfund-block-dark .crowdfund-vertline {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.crowdfund-section-transparent .crowdfund-vertline,
+body .crowdfund-block-transparent .crowdfund-vertline {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.crowdfund-limit-width {
+  max-width: 1170px;
+  margin: 0 auto;
+  position: relative;
+}
+.crowdfund-limit-width.crowdfund-900 {
+  max-width: 900px;
+}
+.crowdfund-fullwidth {
+  width: 100%;
+}
+.crowdfund-clickable {
+  cursor: pointer;
+}
+.crowdfund-icon {
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+  font-size: 1.2rem;
+}
+.crowdfund-icon:before {
+  top: 1.5rem;
+  left: 1.5rem;
+}
+.crowdfund-icon:hover:before {
+  width: 4rem;
+  height: 4rem;
+  left: -0.5rem;
+  top: -0.5rem;
+}
+.crowdfund-overlay {
+  content: "";
+  display: block;
+  position: absolute;
+  padding: 1rem;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  background-color: rgba(208, 48, 27, 0.9);
+}
+.crowdfund-overlay.crowdfund-overlay-color {
+  background-color: rgba(208, 48, 27, 0.9);
+  color: #f1f1f1;
+}
+.crowdfund-overlay.crowdfund-overlay-light {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #2b2b2b;
+}
+.crowdfund-overlay.crowdfund-overlay-dark {
+  background-color: rgba(27, 27, 27, 0.9);
+  color: #f1f1f1;
+}
+.crowdfund-overlay.crowdfund-overlay-transparent {
+  background-color: transparent;
+}
+.crowdfund-color-ctrl {
+  overflow: hidden;
+  position: relative;
+}
+.crowdfund-controller-style {
+  position: absolute;
+  z-index: 50;
+  left: 0;
+  top: 3rem;
+  padding: 1.5rem;
+  display: inline-block;
+  border-radius: 0 0 4px 0;
+  color: #131516;
+  background-color: rgba(255, 255, 255, 0.8);
+  will-change: transform;
+  -webkit-transform: translate(-100%, 0);
+  -moz-transform: translate(-100%, 0);
+  -o-transform: translate(-100%, 0);
+  -ms-transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
+  -webkit-transition: -webkit-transform 0.4s ease;
+  -moz-transition: -moz-transform 0.4s ease;
+  -o-transition: -o-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease,-moz-transform 0.4s ease,-o-transform 0.4s ease,transform 0.4s ease;
+}
+.crowdfund-controller-style .crowdfund-transparent {
+  box-shadow: inset 0 0 0 2px #fff, inset 0 0 14px rgba(19, 21, 22, 0.2);
+  margin-right: 0;
+}
+.crowdfund-controller-style .crowdfund-underline {
+  margin: 0.5rem 0 1rem 0;
+}
+.crowdfund-controller-style:hover {
+  -webkit-transform: translate(0px, 0px);
+  -moz-transform: translate(0px, 0px);
+  -o-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-controller-style {
+    display: none;
+  }
+}
+.crowdfund-controller-tongue {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  padding: 1rem;
+  font-size: 1.3rem;
+  border-radius: 0 4px 4px 0;
+  color: #d0301b;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.crowdfund-body #mc_embed_signup {
+  background: transparent;
+  font: inherit;
+}
+.crowdfund-body #mc_embed_signup label {
+  font-size: 1rem;
+  padding-bottom: 1rem;
+}
+.crowdfund-body #mc_embed_signup .clear {
+  display: inline-block;
+}
+.crowdfund-body #mc_embed_signup input.email {
+  background: transparent;
+  color: white;
+  font: inherit;
+  padding: 0.5em 1rem;
+  height: 3rem;
+  margin: 0 0.5rem;
+  border-radius: 4px;
+  width: 260px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+.crowdfund-body #mc_embed_signup .button {
+  background-color: #d0301b;
+  height: 3rem;
+  font-size: 1rem;
+  color: #fff;
+  letter-spacing: 0;
+  line-height: 1;
+  padding: 0 1rem;
+}
+.crowdfund-body #mc_embed_signup .button:hover {
+  background-color: #d0301b;
+}
+.crowdfund-text-center {
+  text-align: center;
+}
+.crowdfund-text-left {
+  text-align: left;
+}
+.crowdfund-text-right {
+  text-align: right;
+}
+.crowdfund-index-title {
+  font-size: 4rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  color: #fff;
+  display: inline-block;
+}
+.crowdfund-index-title:hover {
+  color: #d0301b;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-index-title {
+    font-size: 3rem;
+  }
+}
+/*
+[2.1 Inputs]
+[2.1.1 Input text / .inputs-text]
+*/
+input:not([type]),
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="url"],
+input[type="tel"] {
+  padding: 1rem 0;
+  margin: 0.5rem;
+  width: 14rem;
+  border: none;
+  box-sizing: border-box;
+  background: none;
+  color: #f1f1f1;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  -webkit-transition: border 0.4s ease;
+  -moz-transition: border 0.4s ease;
+  -o-transition: border 0.4s ease;
+  transition: border 0.4s ease;
+}
+input:not([type]):focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="url"]:focus,
+input[type="tel"]:focus {
+  border-color: #d0301b;
+}
+.crowdfund-section-color input:not([type]),
+.crowdfund-section-color input[type="text"],
+.crowdfund-section-color input[type="email"],
+.crowdfund-section-color input[type="number"],
+.crowdfund-section-color input[type="password"],
+.crowdfund-section-color input[type="url"],
+.crowdfund-section-color input[type="tel"],
+body .crowdfund-block-color input:not([type]),
+body .crowdfund-block-color input[type="text"],
+body .crowdfund-block-color input[type="email"],
+body .crowdfund-block-color input[type="number"],
+body .crowdfund-block-color input[type="password"],
+body .crowdfund-block-color input[type="url"],
+body .crowdfund-block-color input[type="tel"] {
+  color: #f1f1f1;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.crowdfund-section-color input:not([type]):focus,
+.crowdfund-section-color input[type="text"]:focus,
+.crowdfund-section-color input[type="email"]:focus,
+.crowdfund-section-color input[type="number"]:focus,
+.crowdfund-section-color input[type="password"]:focus,
+.crowdfund-section-color input[type="url"]:focus,
+.crowdfund-section-color input[type="tel"]:focus,
+body .crowdfund-block-color input:not([type]):focus,
+body .crowdfund-block-color input[type="text"]:focus,
+body .crowdfund-block-color input[type="email"]:focus,
+body .crowdfund-block-color input[type="number"]:focus,
+body .crowdfund-block-color input[type="password"]:focus,
+body .crowdfund-block-color input[type="url"]:focus,
+body .crowdfund-block-color input[type="tel"]:focus {
+  border-color: #fff;
+}
+.crowdfund-section-light input:not([type]),
+.crowdfund-section-light input[type="text"],
+.crowdfund-section-light input[type="email"],
+.crowdfund-section-light input[type="number"],
+.crowdfund-section-light input[type="password"],
+.crowdfund-section-light input[type="url"],
+.crowdfund-section-light input[type="tel"],
+body .crowdfund-block-light input:not([type]),
+body .crowdfund-block-light input[type="text"],
+body .crowdfund-block-light input[type="email"],
+body .crowdfund-block-light input[type="number"],
+body .crowdfund-block-light input[type="password"],
+body .crowdfund-block-light input[type="url"],
+body .crowdfund-block-light input[type="tel"] {
+  color: #2b2b2b;
+  border-color: rgba(142, 142, 142, 0.4);
+}
+.crowdfund-section-light input:not([type]):focus,
+.crowdfund-section-light input[type="text"]:focus,
+.crowdfund-section-light input[type="email"]:focus,
+.crowdfund-section-light input[type="number"]:focus,
+.crowdfund-section-light input[type="password"]:focus,
+.crowdfund-section-light input[type="url"]:focus,
+.crowdfund-section-light input[type="tel"]:focus,
+body .crowdfund-block-light input:not([type]):focus,
+body .crowdfund-block-light input[type="text"]:focus,
+body .crowdfund-block-light input[type="email"]:focus,
+body .crowdfund-block-light input[type="number"]:focus,
+body .crowdfund-block-light input[type="password"]:focus,
+body .crowdfund-block-light input[type="url"]:focus,
+body .crowdfund-block-light input[type="tel"]:focus {
+  border-color: #d0301b;
+}
+.crowdfund-section-dark input:not([type]),
+.crowdfund-section-dark input[type="text"],
+.crowdfund-section-dark input[type="email"],
+.crowdfund-section-dark input[type="number"],
+.crowdfund-section-dark input[type="password"],
+.crowdfund-section-dark input[type="url"],
+.crowdfund-section-dark input[type="tel"],
+body .crowdfund-block-dark input:not([type]),
+body .crowdfund-block-dark input[type="text"],
+body .crowdfund-block-dark input[type="email"],
+body .crowdfund-block-dark input[type="number"],
+body .crowdfund-block-dark input[type="password"],
+body .crowdfund-block-dark input[type="url"],
+body .crowdfund-block-dark input[type="tel"] {
+  color: #f1f1f1;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.crowdfund-section-dark input:not([type]):focus,
+.crowdfund-section-dark input[type="text"]:focus,
+.crowdfund-section-dark input[type="email"]:focus,
+.crowdfund-section-dark input[type="number"]:focus,
+.crowdfund-section-dark input[type="password"]:focus,
+.crowdfund-section-dark input[type="url"]:focus,
+.crowdfund-section-dark input[type="tel"]:focus,
+body .crowdfund-block-dark input:not([type]):focus,
+body .crowdfund-block-dark input[type="text"]:focus,
+body .crowdfund-block-dark input[type="email"]:focus,
+body .crowdfund-block-dark input[type="number"]:focus,
+body .crowdfund-block-dark input[type="password"]:focus,
+body .crowdfund-block-dark input[type="url"]:focus,
+body .crowdfund-block-dark input[type="tel"]:focus {
+  border-color: #d0301b;
+}
+.crowdfund-section-transparent input:not([type]),
+.crowdfund-section-transparent input[type="text"],
+.crowdfund-section-transparent input[type="email"],
+.crowdfund-section-transparent input[type="number"],
+.crowdfund-section-transparent input[type="password"],
+.crowdfund-section-transparent input[type="url"],
+.crowdfund-section-transparent input[type="tel"],
+body .crowdfund-block-transparent input:not([type]),
+body .crowdfund-block-transparent input[type="text"],
+body .crowdfund-block-transparent input[type="email"],
+body .crowdfund-block-transparent input[type="number"],
+body .crowdfund-block-transparent input[type="password"],
+body .crowdfund-block-transparent input[type="url"],
+body .crowdfund-block-transparent input[type="tel"] {
+  color: #f1f1f1;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.crowdfund-section-transparent input:not([type]):focus,
+.crowdfund-section-transparent input[type="text"]:focus,
+.crowdfund-section-transparent input[type="email"]:focus,
+.crowdfund-section-transparent input[type="number"]:focus,
+.crowdfund-section-transparent input[type="password"]:focus,
+.crowdfund-section-transparent input[type="url"]:focus,
+.crowdfund-section-transparent input[type="tel"]:focus,
+body .crowdfund-block-transparent input:not([type]):focus,
+body .crowdfund-block-transparent input[type="text"]:focus,
+body .crowdfund-block-transparent input[type="email"]:focus,
+body .crowdfund-block-transparent input[type="number"]:focus,
+body .crowdfund-block-transparent input[type="password"]:focus,
+body .crowdfund-block-transparent input[type="url"]:focus,
+body .crowdfund-block-transparent input[type="tel"]:focus {
+  border-color: #d0301b;
+}
+/*
+[2.1.2 textarea]
+*/
+textarea {
+  background: none;
+  border-radius: 4px;
+  border: 2px solid rgba(142, 142, 142, 0.4);
+  width: 16rem;
+  height: 8rem;
+  padding: 1rem;
+  -webkit-transition: border 0.4s ease;
+  -moz-transition: border 0.4s ease;
+  -o-transition: border 0.4s ease;
+  transition: border 0.4s ease;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+textarea:focus {
+  border-color: #d0301b;
+}
+.crowdfund-section-color textarea,
+body .crowdfund-block-color textarea {
+  color: #f1f1f1;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.crowdfund-section-color textarea:focus,
+body .crowdfund-block-color textarea:focus {
+  border-color: #fff;
+}
+.crowdfund-section-light textarea,
+body .crowdfund-block-light textarea {
+  color: #2b2b2b;
+  border-color: rgba(142, 142, 142, 0.4);
+}
+.crowdfund-section-light textarea:focus,
+body .crowdfund-block-light textarea:focus {
+  border-color: #d0301b;
+}
+.crowdfund-section-dark textarea,
+body .crowdfund-block-dark textarea {
+  color: #f1f1f1;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.crowdfund-section-dark textarea:focus,
+body .crowdfund-block-dark textarea:focus {
+  border-color: #d0301b;
+}
+.crowdfund-section-transparent textarea,
+body .crowdfund-block-transparent textarea {
+  color: #f1f1f1;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.crowdfund-section-transparent textarea:focus,
+body .crowdfund-block-transparent textarea:focus {
+  border-color: #d0301b;
+}
+/*
+[2.1.3 submit button / input[type="submit"]
+*/
+input[type="button"],
+input[type="submit"],
+button,
+.crowdfund-button {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  margin: 0.5rem;
+  position: relative;
+  border-radius: 3px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  font-size: inherit;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  letter-spacing: 1px;
+  line-height: 1.3;
+  cursor: pointer;
+  text-decoration: none;
+  vertical-align: inherit;
+  border-color: #d0301b;
+  background-color: #d0301b;
+  box-sizing: border-box;
+}
+input[type="button"].crowdfund-button-transparent,
+input[type="submit"].crowdfund-button-transparent,
+button.crowdfund-button-transparent,
+.crowdfund-button.crowdfund-button-transparent {
+  border-color: rgba(255, 255, 255, 0.2);
+  background-color: transparent;
+}
+input[type="button"]:before,
+input[type="submit"]:before,
+button:before,
+.crowdfund-button:before {
+  content: "";
+  visibility: hidden;
+  position: absolute;
+  z-index: 10;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 3px;
+  background-color: rgba(27, 27, 27, 0.1);
+}
+input[type="button"]:hover,
+input[type="submit"]:hover,
+button:hover,
+.crowdfund-button:hover {
+  color: #fff;
+}
+input[type="button"]:disabled,
+input[type="submit"]:disabled,
+button:disabled,
+.crowdfund-button:disabled {
+  background-color: #444;
+}
+input[type="button"]:active:before,
+input[type="submit"]:active:before,
+button:active:before,
+.crowdfund-button:active:before {
+  visibility: visible;
+}
+.crowdfund-section-color input[type="button"],
+.crowdfund-section-color input[type="submit"],
+.crowdfund-section-color button,
+.crowdfund-section-color .crowdfund-button,
+body .crowdfund-block-color input[type="button"],
+body .crowdfund-block-color input[type="submit"],
+body .crowdfund-block-color button,
+body .crowdfund-block-color .crowdfund-button {
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: transparent;
+  color: #fff;
+  text-decoration: none;
+}
+.crowdfund-section-color input[type="button"]:hover,
+.crowdfund-section-color input[type="submit"]:hover,
+.crowdfund-section-color button:hover,
+.crowdfund-section-color .crowdfund-button:hover,
+body .crowdfund-block-color input[type="button"]:hover,
+body .crowdfund-block-color input[type="submit"]:hover,
+body .crowdfund-block-color button:hover,
+body .crowdfund-block-color .crowdfund-button:hover {
+  color: #fff;
+}
+.crowdfund-section-light input[type="button"],
+.crowdfund-section-light input[type="submit"],
+.crowdfund-section-light button,
+.crowdfund-section-light .crowdfund-button,
+body .crowdfund-block-light input[type="button"],
+body .crowdfund-block-light input[type="submit"],
+body .crowdfund-block-light button,
+body .crowdfund-block-light .crowdfund-button {
+  border-color: #d0301b;
+  background-color: #d0301b;
+  color: #fff;
+}
+.crowdfund-section-light input[type="button"]:hover,
+.crowdfund-section-light input[type="submit"]:hover,
+.crowdfund-section-light button:hover,
+.crowdfund-section-light .crowdfund-button:hover,
+body .crowdfund-block-light input[type="button"]:hover,
+body .crowdfund-block-light input[type="submit"]:hover,
+body .crowdfund-block-light button:hover,
+body .crowdfund-block-light .crowdfund-button:hover {
+  color: #fff;
+}
+.crowdfund-section-dark input[type="button"],
+.crowdfund-section-dark input[type="submit"],
+.crowdfund-section-dark button,
+.crowdfund-section-dark .crowdfund-button,
+body .crowdfund-block-dark input[type="button"],
+body .crowdfund-block-dark input[type="submit"],
+body .crowdfund-block-dark button,
+body .crowdfund-block-dark .crowdfund-button {
+  border-color: #d0301b;
+  background-color: #d0301b;
+  color: #fff;
+}
+.crowdfund-section-dark input[type="button"]:hover,
+.crowdfund-section-dark input[type="submit"]:hover,
+.crowdfund-section-dark button:hover,
+.crowdfund-section-dark .crowdfund-button:hover,
+body .crowdfund-block-dark input[type="button"]:hover,
+body .crowdfund-block-dark input[type="submit"]:hover,
+body .crowdfund-block-dark button:hover,
+body .crowdfund-block-dark .crowdfund-button:hover {
+  color: #fff;
+}
+.crowdfund-section-transparent input[type="button"],
+.crowdfund-section-transparent input[type="submit"],
+.crowdfund-section-transparent button,
+.crowdfund-section-transparent .crowdfund-button,
+body .crowdfund-block-transparent input[type="button"],
+body .crowdfund-block-transparent input[type="submit"],
+body .crowdfund-block-transparent button,
+body .crowdfund-block-transparent .crowdfund-button {
+  border-color: #d0301b;
+  background-color: #d0301b;
+  color: #fff;
+}
+.crowdfund-section-transparent input[type="button"]:hover,
+.crowdfund-section-transparent input[type="submit"]:hover,
+.crowdfund-section-transparent button:hover,
+.crowdfund-section-transparent .crowdfund-button:hover,
+body .crowdfund-block-transparent input[type="button"]:hover,
+body .crowdfund-block-transparent input[type="submit"]:hover,
+body .crowdfund-block-transparent button:hover,
+body .crowdfund-block-transparent .crowdfund-button:hover {
+  color: #fff;
+}
+input[type="button"].crowdfund-fullwidth,
+input[type="submit"].crowdfund-fullwidth,
+button.crowdfund-fullwidth,
+.crowdfund-button.crowdfund-fullwidth,
+input[type="button"].crowdfund-nomargin,
+input[type="submit"].crowdfund-nomargin,
+button.crowdfund-nomargin,
+.crowdfund-button.crowdfund-nomargin {
+  margin-left: 0;
+  margin-right: 0;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  input[type="button"].crowdfund-mobile-fullwidth,
+  input[type="submit"].crowdfund-mobile-fullwidth,
+  button.crowdfund-mobile-fullwidth,
+  .crowdfund-button.crowdfund-mobile-fullwidth {
+    display: block;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+input[type="button"].crowdfund-large,
+input[type="submit"].crowdfund-large,
+button.crowdfund-large,
+.crowdfund-button.crowdfund-large {
+  padding: 1.5rem 3rem;
+  font-size: 1.35rem;
+}
+input[type="button"].crowdfund-small,
+input[type="submit"].crowdfund-small,
+button.crowdfund-small,
+.crowdfund-button.crowdfund-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+input[type="button"] i,
+input[type="submit"] i,
+button i,
+.crowdfund-button i {
+  margin: 0 0.3rem;
+}
+input[type="button"] i:first-child,
+input[type="submit"] i:first-child,
+button i:first-child,
+.crowdfund-button i:first-child {
+  margin-left: 0;
+}
+input[type="button"] i:last-child,
+input[type="submit"] i:last-child,
+button i:last-child,
+.crowdfund-button i:last-child {
+  margin-right: 0;
+}
+/*
+[2.1.4 radio / .crowdfund-radio]
+*/
+.crowdfund-radio {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+}
+.crowdfund-radio:not(checked) {
+  visibility: hidden;
+}
+.crowdfund-radio:not(checked) + .crowdfund-radio-toggle:after {
+  content: "";
+  position: absolute;
+  z-index: 15;
+  width: 0;
+  height: 0;
+  left: 50%;
+  top: 50%;
+  background-color: #d0301b;
+  border-radius: 50%;
+  box-sizing: border-box;
+  visibility: visible;
+  -webkit-transition: all 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  -moz-transition: all 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  -o-transition: all 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  transition: all 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+.crowdfund-section-color .crowdfund-radio:not(checked) + .crowdfund-radio-toggle:after,
+body .crowdfund-block-color .crowdfund-radio:not(checked) + .crowdfund-radio-toggle:after {
+  background-color: #fff;
+}
+.crowdfund-section-light .crowdfund-radio:not(checked) + .crowdfund-radio-toggle:after,
+body .crowdfund-block-light .crowdfund-radio:not(checked) + .crowdfund-radio-toggle:after {
+  background-color: #d0301b;
+}
+.crowdfund-section-light .crowdfund-radio:not(checked):hover + .crowdfund-radio-toggle:before,
+body .crowdfund-block-light .crowdfund-radio:not(checked):hover + .crowdfund-radio-toggle:before {
+  border-color: #d0301b;
+}
+.crowdfund-radio:checked + .crowdfund-radio-toggle:after {
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  margin-top: -7px;
+}
+.crowdfund-radio + .crowdfund-radio-toggle:before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  z-index: 10;
+  width: 28px;
+  height: 28px;
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 100%;
+  visibility: visible;
+  -webkit-transition: -webkit-box-shadow 0.2s ease;
+  -moz-transition: -moz-box-shadow 0.2s ease;
+  -o-transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease;
+}
+.crowdfund-section-light .crowdfund-radio + .crowdfund-radio-toggle:before,
+body .crowdfund-block-light .crowdfund-radio + .crowdfund-radio-toggle:before {
+  border-color: #bbb;
+}
+.crowdfund-radio-label {
+  display: inline-block;
+  float: left;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+.crowdfund-radio-label:first-child {
+  margin-left: 0;
+}
+.crowdfund-radio-label:last-child {
+  margin-right: 0;
+}
+.crowdfund-radio-toggle {
+  float: left;
+  position: relative;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+.crowdfund-radio-title {
+  vertical-align: middle;
+  margin: 0 0.5rem;
+}
+/*
+[2.1.5 checkbox / .crowdfund-check]
+*/
+.crowdfund-check {
+  width: 44.8px;
+  height: 28px;
+  position: absolute;
+  box-sizing: border-box;
+}
+.crowdfund-check + .crowdfund-check-toggle:before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  box-sizing: border-box;
+  z-index: 10;
+  width: 44.8px;
+  height: 28px;
+  left: 0;
+  top: 0;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 28px;
+  visibility: visible;
+  -webkit-transition: -webkit-box-shadow 0.3s ease;
+  -moz-transition: -moz-box-shadow 0.3s ease;
+  -o-transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
+  /*
+
+    .theme-dark({
+      box-shadow: 0 0 0 2px @color-smoke-dark;
+    });
+
+    .theme-transparent({
+      box-shadow: 0 0 0 2px @color-smoke-dark;
+    });
+    */
+}
+.crowdfund-section-light .crowdfund-check + .crowdfund-check-toggle:before,
+body .crowdfund-block-light .crowdfund-check + .crowdfund-check-toggle:before {
+  border-color: #bbb;
+}
+.crowdfund-check:not(checked) {
+  visibility: hidden;
+}
+.crowdfund-check:not(checked) + .crowdfund-check-toggle:after {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 15;
+  width: 18px;
+  height: 18px;
+  margin-left: 4px;
+  margin-top: -9px;
+  left: 0;
+  top: 50%;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  visibility: visible;
+  -webkit-transition: all 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  -moz-transition: all 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  -o-transition: all 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  transition: all 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+.crowdfund-section-light .crowdfund-check:not(checked) + .crowdfund-check-toggle:after,
+body .crowdfund-block-light .crowdfund-check:not(checked) + .crowdfund-check-toggle:after {
+  border-color: #bbb;
+}
+.crowdfund-check:not(checked):hover + .crowdfund-check-toggle:before {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.crowdfund-section-light .crowdfund-check:not(checked):hover + .crowdfund-check-toggle:before,
+body .crowdfund-block-light .crowdfund-check:not(checked):hover + .crowdfund-check-toggle:before {
+  border-color: #d0301b;
+}
+.crowdfund-check:checked + .crowdfund-check-toggle:before {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.crowdfund-section-color .crowdfund-check:checked + .crowdfund-check-toggle:before,
+body .crowdfund-block-color .crowdfund-check:checked + .crowdfund-check-toggle:before {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.crowdfund-section-light .crowdfund-check:checked + .crowdfund-check-toggle:before,
+body .crowdfund-block-light .crowdfund-check:checked + .crowdfund-check-toggle:before {
+  border-color: #d0301b;
+}
+.crowdfund-check:checked + .crowdfund-check-toggle:after {
+  margin-left: 21.6px;
+  border-color: #d0301b;
+}
+.crowdfund-section-color .crowdfund-check:checked + .crowdfund-check-toggle:after,
+body .crowdfund-block-color .crowdfund-check:checked + .crowdfund-check-toggle:after {
+  border-color: #fff;
+}
+.crowdfund-section-light .crowdfund-check:checked + .crowdfund-check-toggle:after,
+body .crowdfund-block-light .crowdfund-check:checked + .crowdfund-check-toggle:after {
+  border-color: #d0301b;
+}
+.crowdfund-check-label {
+  display: inline-block;
+  float: left;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+.crowdfund-check-label:first-child {
+  margin-left: 0;
+}
+.crowdfund-check-label:last-child {
+  margin-right: 0;
+}
+.crowdfund-check-toggle {
+  float: left;
+  position: relative;
+  width: 44.8px;
+  height: 28px;
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+.crowdfund-check-title {
+  vertical-align: middle;
+  margin: 0 0.5rem;
+}
+.crowdfund-circle-color {
+  width: 3.5rem;
+  height: 3.5rem;
+  display: inline-block;
+  margin: 0.5rem 1rem 0.5rem 0;
+  border-radius: 50%;
+  box-shadow: 0 3px 0 rgba(27, 27, 27, 0.1);
+}
+/*
+[2.2 Progressbar / .crowdfund-progress]
+*/
+.crowdfund-progress {
+  width: 20rem;
+  box-sizing: border-box;
+  margin: 1rem 0;
+  position: relative;
+}
+.crowdfund-progress:before,
+.crowdfund-progress:after {
+  content: " ";
+  display: table;
+}
+.crowdfund-progress:after {
+  clear: both;
+}
+.crowdfund-progress.crowdfund-fullwidth {
+  width: 100%;
+}
+.crowdfund-progress .crowdfund-progress-title {
+  text-transform: uppercase;
+  position: relative;
+  display: table-cell;
+  width: 100%;
+  vertical-align: bottom;
+}
+.crowdfund-progress .crowdfund-progress-percent {
+  display: table-cell;
+  position: relative;
+  vertical-align: bottom;
+}
+.crowdfund-bar-bg {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.crowdfund-bar-bg .crowdfund-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 2px;
+  width: 0;
+  background-color: #d0301b;
+  -webkit-transition: width 1.5s ease;
+  -moz-transition: width 1.5s ease;
+  -o-transition: width 1.5s ease;
+  transition: width 1.5s ease;
+}
+.crowdfund-bar-bg .crowdfund-bar.crowdfund-animated:not(.crowdfund-scroll-active) {
+  width: 0 !important;
+}
+.crowdfund-section-color .crowdfund-bar-bg .crowdfund-bar,
+body .crowdfund-block-color .crowdfund-bar-bg .crowdfund-bar {
+  background-color: #fff;
+}
+.crowdfund-section-light .crowdfund-bar-bg .crowdfund-bar,
+body .crowdfund-block-light .crowdfund-bar-bg .crowdfund-bar {
+  background-color: #d0301b;
+}
+.crowdfund-section-dark .crowdfund-bar-bg .crowdfund-bar,
+body .crowdfund-block-dark .crowdfund-bar-bg .crowdfund-bar {
+  background-color: #fff;
+}
+.crowdfund-section-transparent .crowdfund-bar-bg .crowdfund-bar,
+body .crowdfund-block-transparent .crowdfund-bar-bg .crowdfund-bar {
+  background-color: #fff;
+}
+/*
+[2.3 Message / .crowdfund-msg]
+*/
+.crowdfund-msg {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 1rem 3rem 1rem 1.5rem;
+  color: #fff;
+  background-color: #bbb;
+  border-radius: 2px;
+  margin: 0.5rem 0;
+  box-sizing: border-box;
+}
+.crowdfund-msg .crowdfund-msg-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  z-index: 10;
+  color: #fff;
+}
+.crowdfund-msg-warning {
+  background-color: #a32615;
+}
+.crowdfund-msg-success {
+  background-color: #aacf2f;
+}
+.crowdfund-msg-info {
+  background-color: #1161d6;
+}
+/*
+[2.4 Tab / .crowdfund-tab]
+*/
+.crowdfund-tab {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+.crowdfund-tab .crowdfund-tab-header {
+  display: block;
+  width: 100%;
+}
+.crowdfund-tab .crowdfund-tab-link {
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  display: inline-block;
+  float: left;
+  font-size: 0.9rem;
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: 700;
+}
+.crowdfund-tab .crowdfund-tab-link.crowdfund-active {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.crowdfund-section-light .crowdfund-tab .crowdfund-tab-link,
+body .crowdfund-block-light .crowdfund-tab .crowdfund-tab-link {
+  color: #131516;
+}
+.crowdfund-section-light .crowdfund-tab .crowdfund-tab-link.crowdfund-active,
+body .crowdfund-block-light .crowdfund-tab .crowdfund-tab-link.crowdfund-active {
+  background-color: rgba(68, 68, 68, 0.05);
+}
+.crowdfund-tab .crowdfund-tab-container {
+  display: block;
+  width: 100%;
+  position: relative;
+  float: left;
+}
+.crowdfund-tab .crowdfund-tab-content {
+  display: none;
+  position: relative;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+}
+.crowdfund-tab .crowdfund-tab-content.crowdfund-active {
+  display: block;
+}
+.crowdfund-section-light .crowdfund-tab .crowdfund-tab-content,
+body .crowdfund-block-light .crowdfund-tab .crowdfund-tab-content {
+  background-color: rgba(68, 68, 68, 0.05);
+  color: #131516;
+}
+/*
+[2.5 Accordion / .crowdfund-accordion]
+*/
+.crowdfund-accordion {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+}
+.crowdfund-section-light .crowdfund-accordion,
+body .crowdfund-block-light .crowdfund-accordion {
+  background-color: rgba(68, 68, 68, 0.05);
+  color: #131516;
+}
+.crowdfund-accordion .crowdfund-accordion-link {
+  width: 100%;
+  float: left;
+  position: relative;
+  padding: 1.5rem 0 1.5rem 2rem;
+  box-sizing: border-box;
+  font-weight: 400;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.crowdfund-accordion .crowdfund-accordion-link:before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  top: 1.6rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 2px solid #fff;
+  border-width: 2px 2px 0 0;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.crowdfund-accordion .crowdfund-accordion-link:first-child {
+  border: none;
+}
+.crowdfund-accordion .crowdfund-accordion-link.crowdfund-active:before {
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+.crowdfund-section-light .crowdfund-accordion .crowdfund-accordion-link.crowdfund-active,
+body .crowdfund-block-light .crowdfund-accordion .crowdfund-accordion-link.crowdfund-active {
+  color: #131516;
+}
+.crowdfund-section-light .crowdfund-accordion .crowdfund-accordion-link.crowdfund-active:before,
+body .crowdfund-block-light .crowdfund-accordion .crowdfund-accordion-link.crowdfund-active:before {
+  border-color: #131516;
+}
+.crowdfund-section-light .crowdfund-accordion .crowdfund-accordion-link,
+body .crowdfund-block-light .crowdfund-accordion .crowdfund-accordion-link {
+  border-color: #ddd;
+}
+.crowdfund-section-light .crowdfund-accordion .crowdfund-accordion-link:before,
+body .crowdfund-block-light .crowdfund-accordion .crowdfund-accordion-link:before {
+  border-color: #d0301b;
+}
+.crowdfund-accordion .crowdfund-accordion-container {
+  width: 100%;
+  float: left;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  -webkit-transition: padding 0.3s ease, opacity 0.3s ease;
+  -moz-transition: padding 0.3s ease, opacity 0.3s ease;
+  -o-transition: padding 0.3s ease, opacity 0.3s ease;
+  transition: padding 0.3s ease, opacity 0.3s ease;
+}
+.crowdfund-accordion .crowdfund-accordion-container.crowdfund-active {
+  opacity: 1;
+  height: auto;
+  padding: 1.5rem 0;
+}
+/*
+[2.6 Tag / .crowdfund-tag]
+*/
+.crowdfund-tag {
+  display: inline-block;
+  background-color: rgba(142, 142, 142, 0.1);
+  padding: 0.3rem 0.4rem;
+  border-radius: 2px;
+  margin-right: 0.4rem;
+  margin-bottom: 0.4rem;
+  -webkit-transition: background-color 0.4s ease;
+  -moz-transition: background-color 0.4s ease;
+  -o-transition: background-color 0.4s ease;
+  transition: background-color 0.4s ease;
+}
+.crowdfund-tag:hover {
+  background-color: #d0301b;
+  color: #fff;
+}
+.crowdfund-section-color .crowdfund-tag,
+body .crowdfund-block-color .crowdfund-tag {
+  background-color: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+}
+.crowdfund-section-color .crowdfund-tag:hover,
+body .crowdfund-block-color .crowdfund-tag:hover {
+  background-color: rgba(19, 21, 22, 0.1);
+  color: #fff;
+}
+.crowdfund-section-light .crowdfund-tag:hover,
+body .crowdfund-block-light .crowdfund-tag:hover {
+  color: #fff;
+}
+.crowdfund-section-dark .crowdfund-tag:hover,
+body .crowdfund-block-dark .crowdfund-tag:hover {
+  color: #fff;
+}
+.crowdfund-section-transparent .crowdfund-tag:hover,
+body .crowdfund-block-transparent .crowdfund-tag:hover {
+  color: #fff;
+}
+.crowdfund-icon {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+  font-size: 1.2rem;
+  margin: 0.5rem;
+  color: #fff;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.crowdfund-section-color .crowdfund-icon,
+body .crowdfund-block-color .crowdfund-icon {
+  text-decoration: none;
+}
+.crowdfund-icon:before {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  border-radius: 50%;
+  width: 0rem;
+  height: 0rem;
+  top: 1.5rem;
+  left: 1.5rem;
+  background-color: rgba(27, 27, 27, 0.15);
+  -webkit-transition: all 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  -moz-transition: all 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  -o-transition: all 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  transition: all 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+.crowdfund-section-color .crowdfund-icon:before,
+body .crowdfund-block-color .crowdfund-icon:before {
+  background-color: rgba(27, 27, 27, 0.1);
+}
+.crowdfund-section-light .crowdfund-icon:before,
+body .crowdfund-block-light .crowdfund-icon:before {
+  background-color: rgba(27, 27, 27, 0.05);
+}
+.crowdfund-section-dark .crowdfund-icon:before,
+body .crowdfund-block-dark .crowdfund-icon:before {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.crowdfund-section-transparent .crowdfund-icon:before,
+body .crowdfund-block-transparent .crowdfund-icon:before {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.crowdfund-icon:after {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  left: -2px;
+  top: -2px;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.1);
+  -webkit-transition: border 0.5s ease;
+  -moz-transition: border 0.5s ease;
+  -o-transition: border 0.5s ease;
+  transition: border 0.5s ease;
+}
+.crowdfund-section-color .crowdfund-icon:after,
+body .crowdfund-block-color .crowdfund-icon:after {
+  border-color: rgba(27, 27, 27, 0.1);
+}
+.crowdfund-section-light .crowdfund-icon:after,
+body .crowdfund-block-light .crowdfund-icon:after {
+  border-color: rgba(27, 27, 27, 0.1);
+}
+.crowdfund-section-dark .crowdfund-icon:after,
+body .crowdfund-block-dark .crowdfund-icon:after {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.crowdfund-section-transparent .crowdfund-icon:after,
+body .crowdfund-block-transparent .crowdfund-icon:after {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.crowdfund-icon i {
+  position: relative;
+  z-index: 20;
+  text-shadow: 0 0.15em 0 rgba(27, 27, 27, 0.1);
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+  display: inline !important;
+  visibility: visible !important;
+}
+.crowdfund-section-color .crowdfund-icon i,
+body .crowdfund-block-color .crowdfund-icon i {
+  color: #fff;
+}
+.crowdfund-section-light .crowdfund-icon i,
+body .crowdfund-block-light .crowdfund-icon i {
+  color: #d0301b;
+  text-shadow: none;
+}
+.crowdfund-section-dark .crowdfund-icon i,
+body .crowdfund-block-dark .crowdfund-icon i {
+  color: #fff;
+}
+.crowdfund-section-transparent .crowdfund-icon i,
+body .crowdfund-block-transparent .crowdfund-icon i {
+  color: #fff;
+}
+.crowdfund-icon:hover:before {
+  width: 4rem;
+  height: 4rem;
+  left: -0.5rem;
+  top: -0.5rem;
+}
+.crowdfund-icon:hover i {
+  text-shadow: none;
+}
+.crowdfund-icon:hover:after {
+  border-color: #fff;
+}
+.crowdfund-section-color .crowdfund-icon:hover:after,
+body .crowdfund-block-color .crowdfund-icon:hover:after {
+  border-color: #d0301b;
+}
+.crowdfund-section-light .crowdfund-icon:hover:after,
+body .crowdfund-block-light .crowdfund-icon:hover:after {
+  border-color: #d0301b;
+}
+.crowdfund-section-dark .crowdfund-icon:hover:after,
+body .crowdfund-block-dark .crowdfund-icon:hover:after {
+  border-color: #d0301b;
+}
+.crowdfund-section-transparent .crowdfund-icon:hover:after,
+body .crowdfund-block-transparent .crowdfund-icon:hover:after {
+  border-color: #fff;
+}
+.crowdfund-icon.crowdfund-icon-color i {
+  color: #d0301b;
+}
+.crowdfund-icon.crowdfund-icon-color:after {
+  border-color: #d0301b;
+}
+.crowdfund-icon.crowdfund-icon-color:hover i {
+  color: #fff;
+}
+.crowdfund-icon.crowdfund-icon-color:hover:after {
+  border-color: #fff;
+}
+/*
+[3. Grid / .crowdfund-table]
+*/
+.crowdfund-table {
+  display: table;
+  width: 100%;
+  position: relative;
+}
+.crowdfund-table .crowdfund-column {
+  display: table-cell;
+  vertical-align: middle;
+  position: relative;
+}
+.crowdfund-table .crowdfund-row {
+  position: relative;
+}
+.crowdfund-row {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+}
+.crowdfund-row:before,
+.crowdfund-row:after {
+  content: " ";
+  display: table;
+}
+.crowdfund-row:after {
+  clear: both;
+}
+.crowdfund-row + .crowdfund-row {
+  margin-top: -3px;
+}
+.crowdfund-row-vbottom {
+  vertical-align: bottom;
+}
+.crowdfund-row-vmiddle {
+  vertical-align: middle;
+}
+.crowdfund-row-vmiddle:after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+.crowdfund-row-vmiddle > .crowdfund-col {
+  vertical-align: middle;
+}
+.crowdfund-col {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  float: none;
+  box-sizing: border-box;
+  margin-left: -2px;
+  margin-right: -2px;
+}
+.crowdfund-col + .crowdfund-col {
+  padding-left: 1rem;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-col-phone-12 + .crowdfund-col-phone-12 {
+    margin-top: 1rem;
+  }
+}
+.crowdfund-row-gap .crowdfund-col + .crowdfund-col {
+  padding-left: 3rem;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-row-gap .crowdfund-col-phone-12,
+  .crowdfund-row-gap .crowdfund-col-phone-12 + .crowdfund-col-phone-12 {
+    padding: 1rem 2rem;
+  }
+}
+.crowdfund-col-1 {
+  width: 8.33333333%;
+}
+.crowdfund-col-2 {
+  width: 16.66666667%;
+}
+.crowdfund-col-3 {
+  width: 25%;
+}
+.crowdfund-col-4 {
+  width: 33.33333333%;
+}
+.crowdfund-col-5 {
+  width: 41.66666667%;
+}
+.crowdfund-col-6 {
+  width: 50%;
+}
+.crowdfund-col-7 {
+  width: 58.33333333%;
+}
+.crowdfund-col-8 {
+  width: 66.66666667%;
+}
+.crowdfund-col-9 {
+  width: 75%;
+}
+.crowdfund-col-10 {
+  width: 83.33333333%;
+}
+.crowdfund-col-11 {
+  width: 91.66666667%;
+}
+.crowdfund-col-12 {
+  width: 100%;
+}
+.crowdfund-col-12 + .crowdfund-col-12 {
+  padding: 0;
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-col-tablet-1 {
+    width: 8.33333333%;
+  }
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-col-tablet-2 {
+    width: 16.66666667%;
+  }
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-col-tablet-3 {
+    width: 25%;
+  }
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-col-tablet-4 {
+    width: 33.33333333%;
+  }
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-col-tablet-5 {
+    width: 41.66666667%;
+  }
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-col-tablet-6 {
+    width: 50%;
+  }
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-col-tablet-7 {
+    width: 58.33333333%;
+  }
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-col-tablet-8 {
+    width: 66.66666667%;
+  }
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-col-tablet-9 {
+    width: 75%;
+  }
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-col-tablet-10 {
+    width: 83.33333333%;
+  }
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-col-tablet-11 {
+    width: 91.66666667%;
+  }
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-col-tablet-12 {
+    width: 100%;
+  }
+  .crowdfund-col-tablet-12 + .crowdfund-col-tablet-12 {
+    padding: 0;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-col-phone-1 {
+    width: 8.33333333%;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-col-phone-2 {
+    width: 16.66666667%;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-col-phone-3 {
+    width: 25%;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-col-phone-4 {
+    width: 33.33333333%;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-col-phone-5 {
+    width: 41.66666667%;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-col-phone-6 {
+    width: 50%;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-col-phone-7 {
+    width: 58.33333333%;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-col-phone-8 {
+    width: 66.66666667%;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-col-phone-9 {
+    width: 75%;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-col-phone-10 {
+    width: 83.33333333%;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-col-phone-11 {
+    width: 91.66666667%;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-col-phone-12 {
+    width: 100%;
+  }
+  .crowdfund-col-phone-12 + .crowdfund-col-phone-12 {
+    padding: 0;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-phone-hidden {
+    display: none !important;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-phone-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+.crowdfund-preview-link {
+  display: inline-block;
+}
+.crowdfund-preview-link:hover {
+  cursor: pointer;
+}
+.crowdfund-preview {
+  display: inline-block;
+  position: relative;
+  width: 20rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.crowdfund-preview img {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 0 1rem rgba(27, 27, 27, 0.9);
+}
+.crowdfund-preview:hover:before {
+  background-color: rgba(27, 27, 27, 0.7);
+}
+.crowdfund-preview:hover .crowdfund-preview-content .crowdfund-button {
+  opacity: 1;
+}
+.crowdfund-preview:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(27, 27, 27, 0);
+  -webkit-transition: background-color ease 0.3s;
+  -moz-transition: background-color ease 0.3s;
+  -o-transition: background-color ease 0.3s;
+  transition: background-color ease 0.3s;
+}
+.crowdfund-preview-link {
+  margin: 1rem 0;
+}
+.crowdfund-preview-content {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.crowdfund-preview-content:after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+  width: 0;
+}
+.crowdfund-preview-content .crowdfund-button {
+  vertical-align: middle;
+  opacity: 0;
+  -webkit-transition: all ease 0.3s;
+  -moz-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+/*
+[4. Menu / .crowdfund-menu]
+*/
+.crowdfund-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 500;
+}
+.crowdfund-menu-toggle {
+  position: absolute;
+  width: 4.7rem;
+  height: 4.7rem;
+  right: 0;
+  top: 2rem;
+  border-radius: 100%;
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-menu-toggle {
+    right: 1rem;
+    top: 1rem;
+  }
+}
+.crowdfund-menu-toggle:before,
+.crowdfund-menu-toggle:after {
+  content: "";
+  position: absolute;
+  width: 2rem;
+  height: 3px;
+  background-color: #d0301b;
+  left: 50%;
+  top: 50%;
+  margin-left: -1rem;
+  margin-top: -0.4rem;
+  box-shadow: 0 2px 0 rgba(27, 27, 27, 0.15);
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.crowdfund-menu-toggle:after {
+  margin-top: 0.4rem;
+}
+.crowdfund-menu-toggle.crowdfund-active {
+  background-color: rgba(19, 21, 22, 0.9);
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-menu-toggle.crowdfund-active {
+    background: none;
+  }
+}
+.crowdfund-menu-toggle.crowdfund-active:before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  background-color: #fff;
+  margin-top: 0;
+}
+.crowdfund-menu-toggle.crowdfund-active:after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  background-color: #fff;
+  margin-top: 0;
+}
+.crowdfund-menu-container {
+  width: 50%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 490;
+  background-color: rgba(19, 21, 22, 0.95);
+  -webkit-transition: -webkit-transform 1s ease;
+  -moz-transition: -moz-transform 1s ease;
+  -o-transition: -o-transform 1s ease;
+  transition: -webkit-transform 1s ease,-moz-transform 1s ease,-o-transform 1s ease,transform 1s ease;
+  -webkit-transform: translateX(-200%);
+  -moz-transform: translateX(-200%);
+  -o-transform: translateX(-200%);
+  -ms-transform: translateX(-200%);
+  transform: translateX(-200%);
+  -webkit-transform: translateX(calc(-100% - 16rem));
+  -moz-transform: translateX(calc(-100% - 16rem));
+  -o-transform: translateX(calc(-100% - 16rem));
+  -ms-transform: translateX(calc(-100% - 16rem));
+  transform: translateX(calc(-100% - 16rem));
+}
+.crowdfund-menu-container:before {
+  content: "";
+  border-top: 100vh solid rgba(19, 21, 22, 0.95);
+  border-right: 16rem solid transparent;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
+.crowdfund-menu-container.crowdfund-active {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -o-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-menu-container {
+    width: 50%;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-menu-container {
+    width: 100%;
+  }
+  .crowdfund-menu-container:before {
+    border-right-width: 10rem;
+  }
+}
+.crowdfund-menu-container .crowdfund-menu-scroll-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.crowdfund-menu-container .crowdfund-menu-scroll {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  overflow-x: visible;
+  overflow-y: scroll;
+  right: -22px;
+}
+@media only screen
+									and (max-device-width: 1024px) {
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-menu-container .crowdfund-menu-scroll {
+    right: 0;
+  }
+}
+.crowdfund-menu-container .crowdfund-menu-scroll .crowdfund-menu-scroll-container {
+  padding: 4rem;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-menu-container .crowdfund-menu-scroll .crowdfund-menu-scroll-container {
+    padding: 2rem;
+  }
+}
+.crowdfund-menu-container .crowdfund-column-logo {
+  width: 5.5rem;
+}
+.crowdfund-menu-container .crowdfund-logo {
+  text-align: left;
+}
+.crowdfund-menu-container .crowdfund-logo h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+.crowdfund-menu-container .crowdfund-logo .crowdfund-logo-subtitle {
+  font-size: 0.8rem;
+  letter-spacing: 0.2rem;
+  white-space: nowrap;
+}
+.crowdfund-menu-container .crowdfund-logo-menu {
+  max-width: 20rem;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-menu-container .crowdfund-logo-menu {
+    max-width: 80%;
+  }
+}
+.crowdfund-menu-container .crowdfund-logo-container {
+  height: 4rem;
+  margin-right: 1rem;
+}
+.crowdfund-menu-container .crowdfund-logo-container img {
+  max-height: 100%;
+}
+.crowdfund-menu-list {
+  margin-top: 3rem;
+  /*
+	& > .crowdfund-menu-item:last-child{
+		.crowdfund-menu-sub{
+			position: relative;
+			top: 0;
+
+	    @media @screen-tablet{
+				margin-top: 1rem;
+			}
+		}
+	}*/
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-menu-list {
+    margin-top: 2rem;
+  }
+}
+.crowdfund-menu-list .crowdfund-menu-item {
+  position: relative;
+  text-transform: uppercase;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0 2rem 2rem 0;
+}
+.crowdfund-menu-list .crowdfund-menu-item a {
+  display: inline-block;
+  line-height: 1.3;
+  color: #fff;
+}
+.crowdfund-menu-list .crowdfund-menu-item a:hover {
+  color: #d0301b;
+}
+.crowdfund-menu-list .crowdfund-menu-item a + .crowdfund-menu-sub {
+  color: red;
+}
+.crowdfund-menu-list .crowdfund-menu-item.menu-item-has-children:before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  left: -2rem;
+  top: 0.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  opacity: 1;
+  border: 2px solid #fff;
+  border-color: #d0301b;
+  border-width: 2px 2px 0 0;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.crowdfund-menu-list .crowdfund-menu-item.menu-item-has-children.crowdfund-active:before {
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-menu-list .crowdfund-menu-item.menu-item-has-children:before {
+    opacity: 1;
+    left: -1.3rem;
+  }
+}
+.crowdfund-menu-list .crowdfund-menu-item .crowdfund-menu-sub {
+  display: none;
+  position: relative;
+  top: 0;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+.crowdfund-menu-list .crowdfund-menu-item .crowdfund-menu-sub .crowdfund-menu-sub {
+  position: relative;
+  left: 0;
+}
+.crowdfund-menu-list .crowdfund-menu-item .crowdfund-menu-sub .crowdfund-menu-item {
+  padding: 0 1rem 1rem 0;
+}
+.crowdfund-menu-list .crowdfund-menu-item .crowdfund-menu-sub .crowdfund-menu-item.crowdfund-active:before {
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+.crowdfund-menu-list .crowdfund-menu-item .crowdfund-menu-sub .crowdfund-menu-item a {
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+.crowdfund-menu-list .crowdfund-menu-item .crowdfund-menu-sub .crowdfund-menu-item:last-child a {
+  padding-bottom: 0;
+}
+.crowdfund-menu-list .crowdfund-menu-item.crowdfund-active:before {
+  opacity: 1;
+  right: 1rem;
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-menu-list .crowdfund-menu-item.crowdfund-active:before {
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+}
+.crowdfund-menu-list .crowdfund-menu-item.crowdfund-active > a {
+  color: #d0301b;
+}
+.crowdfund-menu-list .crowdfund-menu-item.crowdfund-active > .crowdfund-menu-sub {
+  display: block;
+}
+.crowdfund-menu-list .crowdfund-menu-item:last-child a {
+  padding-bottom: 0;
+}
+.crowdfund-menu-info {
+  margin-top: 3rem;
+  min-width: 15rem;
+  max-width: 30rem;
+}
+/*
+[5. Blog section / .crowdfund-section-blog]
+*/
+.crowdfund-section-blog .crowdfund-content-padding {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.crowdfund-post {
+  position: relative;
+  min-height: 8rem;
+  border-radius: 3px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.crowdfund-post.crowdfund-post-border {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+.crowdfund-portfolio-column-1 .crowdfund-post {
+  padding-left: 20%;
+  padding-right: 20%;
+  text-align: center;
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-portfolio-column-1 .crowdfund-post {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+.crowdfund-post .crowdfund-underline-small {
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+.crowdfund-post .crowdfund-post-footer {
+  margin-top: 2rem;
+}
+.crowdfund-post .crowdfund-post-footer .crowdfund-more {
+  margin: 0;
+}
+.crowdfund-post + .crowdfund-post {
+  margin-top: 1rem;
+}
+.crowdfund-post-img {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.crowdfund-post-img.crowdfund-post-img-top {
+  width: 100%;
+  height: 30rem;
+  border-radius: 3px 3px 0 0;
+}
+.crowdfund-portfolio-column-2 .crowdfund-post .crowdfund-post-img.crowdfund-post-img-top {
+  height: auto;
+  padding-top: 60%;
+}
+.crowdfund-post-img.crowdfund-post-img-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 400px;
+  border-radius: 3px 0 0 3px;
+}
+.crowdfund-post-img.crowdfund-post-img-left ~ .crowdfund-post-container,
+.crowdfund-post-img.crowdfund-post-img-left ~ .crowdfund-post-container-big {
+  margin-left: 400px;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-post-img.crowdfund-post-img-left ~ .crowdfund-post-container,
+  .crowdfund-post-img.crowdfund-post-img-left ~ .crowdfund-post-container-big {
+    margin-left: 0;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-post-img.crowdfund-post-img-left {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    border-radius: 3px 3px 0 0;
+  }
+}
+.crowdfund-post-img.crowdfund-post-img-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  border-radius: 0 3px 3px 0;
+}
+.crowdfund-post-img.crowdfund-post-img-right ~ .crowdfund-post-container,
+.crowdfund-post-img.crowdfund-post-img-right ~ .crowdfund-post-container-big {
+  margin-right: 400px;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-post-img.crowdfund-post-img-right ~ .crowdfund-post-container,
+  .crowdfund-post-img.crowdfund-post-img-right ~ .crowdfund-post-container-big {
+    margin-right: 0;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-post-img.crowdfund-post-img-right {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    border-radius: 3px 3px 0 0;
+  }
+}
+.crowdfund-post-overlay {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(27, 27, 27, 0.8);
+}
+.crowdfund-post-container {
+  position: relative;
+  padding: 2.5rem;
+  z-index: 10;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-post-container {
+    padding: 1rem;
+  }
+}
+.crowdfund-post-container-big {
+  position: relative;
+  padding: 4.5rem;
+  z-index: 10;
+}
+.crowdfund-post-container-big .crowdfund-post-footer {
+  margin-top: 4rem;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-post-container-big {
+    padding: 2rem;
+  }
+}
+/*
+[6. Contacts section / .crowdfund-section-contacts]
+*/
+.crowdfund-section-contacts .crowdfund-content-footer {
+  margin-top: 1.5rem;
+}
+.crowdfund-section-contacts .crowdfund-content-footer .crowdfund-column {
+  vertical-align: top;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-section-contacts .crowdfund-content-footer .crowdfund-column {
+    width: 100%;
+    padding: 0;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+}
+.crowdfund-section-contacts .crowdfund-content-footer .crowdfund-button {
+  margin-right: 0;
+}
+.crowdfund-table-contacts .crowdfund-column {
+  width: 50%;
+  min-width: 50%;
+  padding: 0 1rem;
+  vertical-align: top;
+}
+.crowdfund-table-contacts .crowdfund-column:first-child {
+  padding-left: 0;
+}
+.crowdfund-table-contacts .crowdfund-column:last-child {
+  padding-right: 0;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-table-contacts .crowdfund-column {
+    width: 100%;
+    padding: 0;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+}
+.crowdfund-table-contacts input:not([type]),
+.crowdfund-table-contacts input[type="text"],
+.crowdfund-table-contacts input[type="email"],
+.crowdfund-table-contacts input[type="number"],
+.crowdfund-table-contacts input[type="password"],
+.crowdfund-table-contacts input[type="url"],
+.crowdfund-table-contacts input[type="tel"] {
+  width: 100%;
+  margin: 0 0 1rem 0;
+  min-width: 15rem;
+}
+.crowdfund-table-contacts input:not([type]):last-child,
+.crowdfund-table-contacts input[type="text"]:last-child,
+.crowdfund-table-contacts input[type="email"]:last-child,
+.crowdfund-table-contacts input[type="number"]:last-child,
+.crowdfund-table-contacts input[type="password"]:last-child,
+.crowdfund-table-contacts input[type="url"]:last-child,
+.crowdfund-table-contacts input[type="tel"]:last-child {
+  margin-bottom: 0;
+}
+.crowdfund-table-contacts textarea {
+  width: 100%;
+  height: 100%;
+  min-height: 12.4rem;
+}
+/*
+[7. Features section / .crowdfund-section-features]
+*/
+.crowdfund-feature-slide {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+.crowdfund-feature {
+  text-align: center;
+  max-width: 300px;
+  display: inline-block;
+}
+.crowdfund-feature .crowdfund-icon {
+  width: 9.5rem;
+  height: 9.5rem;
+  line-height: 9.5rem;
+  font-size: 3.8rem;
+  margin-bottom: 2rem;
+}
+.crowdfund-feature .crowdfund-icon:before {
+  top: 4.75rem;
+  left: 4.75rem;
+}
+.crowdfund-feature .crowdfund-icon:hover:before {
+  width: 11.5rem;
+  height: 11.5rem;
+  left: -1rem;
+  top: -1rem;
+}
+/*
+[23. Footer / .crowdfund-section-footer]
+*/
+.crowdfund-section-footer .crowdfund-section-content {
+  padding-top: 4.5rem;
+  padding-bottom: 3rem;
+}
+.crowdfund-section-footer .crowdfund-icon-container {
+  margin-bottom: 1rem;
+}
+.crowdfund-section-footer .crowdfund-icon-container-left .crowdfund-icon {
+  margin-left: 0;
+  margin-top: 0;
+  margin-right: 1rem;
+}
+.crowdfund-section-footer .crowdfund-icon {
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+  font-size: 1.2rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  vertical-align: top;
+}
+.crowdfund-section-footer .crowdfund-icon:before {
+  top: 1.5rem;
+  left: 1.5rem;
+}
+.crowdfund-section-footer .crowdfund-icon:hover:before {
+  width: 4rem;
+  height: 4rem;
+  left: -0.5rem;
+  top: -0.5rem;
+}
+.crowdfund-section-footer .crowdfund-underline {
+  opacity: 0.3;
+  width: 50%;
+  margin-bottom: 2rem;
+}
+.crowdfund-footer-title {
+  color: rgba(255, 255, 255, 0.3);
+}
+.crowdfund-footer-title a {
+  color: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+}
+.crowdfund-footer-title a:hover {
+  color: #d0301b;
+}
+.crowdfund-section-color .crowdfund-footer-title a,
+body .crowdfund-block-color .crowdfund-footer-title a {
+  color: rgba(255, 255, 255, 0.3);
+}
+.crowdfund-section-color .crowdfund-footer-title a:hover,
+body .crowdfund-block-color .crowdfund-footer-title a:hover {
+  color: #fff;
+}
+.crowdfund-section-light .crowdfund-footer-title a,
+body .crowdfund-block-light .crowdfund-footer-title a {
+  color: rgba(27, 27, 27, 0.3);
+}
+.crowdfund-section-light .crowdfund-footer-title a:hover,
+body .crowdfund-block-light .crowdfund-footer-title a:hover {
+  color: #d0301b;
+}
+.crowdfund-section-dark .crowdfund-footer-title a,
+body .crowdfund-block-dark .crowdfund-footer-title a {
+  color: rgba(255, 255, 255, 0.3);
+}
+.crowdfund-section-dark .crowdfund-footer-title a:hover,
+body .crowdfund-block-dark .crowdfund-footer-title a:hover {
+  color: #d0301b;
+}
+.crowdfund-section-transparent .crowdfund-footer-title a,
+body .crowdfund-block-transparent .crowdfund-footer-title a {
+  color: rgba(255, 255, 255, 0.3);
+}
+.crowdfund-section-transparent .crowdfund-footer-title a:hover,
+body .crowdfund-block-transparent .crowdfund-footer-title a:hover {
+  color: #d0301b;
+}
+/*
+[8. Goals section / .crowdfund-section-goals]
+*/
+.crowdfund-table-goals h3 {
+  font-weight: 300;
+}
+.crowdfund-table-goals .crowdfund-column {
+  vertical-align: top;
+  padding: 0.5rem 1rem 2rem;
+}
+.crowdfund-table-goals .crowdfund-column-title {
+  text-align: right;
+  width: 13rem;
+  white-space: nowrap;
+}
+@media only screen
+														and (max-device-width: 1024px)
+														and (max-aspect-ratio: 13/9)  {
+  .crowdfund-table-goals .crowdfund-column-title {
+    width: 11rem;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-table-goals .crowdfund-column-title {
+    float: left;
+    width: auto;
+    padding-bottom: 0.5rem;
+  }
+}
+.crowdfund-table-goals .crowdfund-column-title h3 {
+  font-weight: 400;
+}
+.crowdfund-table-goals .crowdfund-column-icon {
+  padding: 0 2rem;
+  overflow: hidden;
+  color: #d0301b;
+}
+@media only screen
+														and (max-device-width: 1024px)
+														and (max-aspect-ratio: 13/9)  {
+  .crowdfund-table-goals .crowdfund-column-icon {
+    padding: 0 1rem;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-table-goals .crowdfund-column-icon {
+    float: right;
+    padding: 0 1.5rem;
+  }
+}
+.crowdfund-section-color .crowdfund-table-goals .crowdfund-column-icon,
+body .crowdfund-block-color .crowdfund-table-goals .crowdfund-column-icon {
+  color: #fff;
+}
+.crowdfund-section-light .crowdfund-table-goals .crowdfund-column-icon,
+body .crowdfund-block-light .crowdfund-table-goals .crowdfund-column-icon {
+  color: #d0301b;
+}
+.crowdfund-section-dark .crowdfund-table-goals .crowdfund-column-icon,
+body .crowdfund-block-dark .crowdfund-table-goals .crowdfund-column-icon {
+  color: #d0301b;
+}
+.crowdfund-section-transparent .crowdfund-table-goals .crowdfund-column-icon,
+body .crowdfund-block-transparent .crowdfund-table-goals .crowdfund-column-icon {
+  color: #d0301b;
+}
+@media only screen
+														and (max-device-width: 1024px)
+														and (max-aspect-ratio: 13/9)  {
+  .crowdfund-table-goals .crowdfund-column-info {
+    padding-right: 2rem;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-table-goals .crowdfund-column-info {
+    display: inline-block;
+  }
+}
+.crowdfund-table-goals .crowdfund-row:last-child .crowdfund-vertline {
+  display: none;
+}
+.crowdfund-goal-icon {
+  width: 3.75rem;
+  height: 3.75rem;
+  line-height: 3.75rem;
+  font-size: 1.65rem;
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+}
+.crowdfund-section-color .crowdfund-goal-icon,
+body .crowdfund-block-color .crowdfund-goal-icon {
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+.crowdfund-section-light .crowdfund-goal-icon,
+body .crowdfund-block-light .crowdfund-goal-icon {
+  border-color: rgba(27, 27, 27, 0.2);
+}
+.crowdfund-section-dark .crowdfund-goal-icon,
+body .crowdfund-block-dark .crowdfund-goal-icon {
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+.crowdfund-section-transparent .crowdfund-goal-icon,
+body .crowdfund-block-transparent .crowdfund-goal-icon {
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+/*
+[9. Home section / .crowdfund-section-home]
+*/
+.crowdfund-section-home {
+  height: 100%;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  color: #fff;
+}
+@media only screen
+																and (max-height : 800px) {
+  .crowdfund-section-home {
+    height: 800px;
+  }
+}
+.crowdfund-section-home .crowdfund-home-content-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 50;
+}
+.crowdfund-section-home .crowdfund-home-content {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 0 1rem;
+}
+.crowdfund-section-home .crowdfund-button {
+  min-width: 13rem;
+}
+.crowdfund-logo {
+  line-height: 1.3;
+}
+.crowdfund-logo img {
+  width: 100%;
+}
+.crowdfund-logo .crowdfund-logo-title {
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #d0301b;
+  letter-spacing: 0.3rem;
+}
+.crowdfund-logo .crowdfund-logo-subtitle {
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.35rem;
+}
+.crowdfund-logo .crowdfund-underline {
+  margin-top: 3rem;
+}
+.crowdfund-carousel-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.crowdfund-carousel-bg .crowdfund-slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.crowdfund-carousel-bg .owl-item.animated {
+  -webkit-animation-duration: 4s;
+  -moz-animation-duration: 4s;
+  -o-animation-duration: 4s;
+  animation-duration: 4s;
+}
+/*
+[10. Map section / .crowdfund-section-map]
+*/
+.crowdfund-section-map .crowdfund-underline {
+  margin-bottom: 2rem;
+}
+.crowdfund-section-map .crowdfund-section-content {
+  padding-bottom: 0;
+}
+.crowdfund-map {
+  width: 100%;
+  height: 30rem;
+  position: relative;
+}
+#map {
+  width: 100%;
+  height: 100%;
+}
+.crowdfund-map-contacts {
+  padding: 3rem;
+}
+.crowdfund-contact-item {
+  display: table;
+  margin: 1rem 0;
+  line-height: 1.3;
+}
+.crowdfund-contact-item-icon {
+  display: table-cell;
+  width: 1.5rem;
+  min-width: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+.crowdfund-contact-item-info {
+  display: table-cell;
+  width: 100%;
+  padding-left: 1rem;
+  vertical-align: middle;
+}
+/*
+[11. Partners carousel / .crowdfund-carousel-partners]
+*/
+.crowdfund-carousel-partners .crowdfund-item {
+  opacity: 0.6;
+  display: block;
+  text-align: center;
+  -webkit-transition: opacity 0.4s ease;
+  -moz-transition: opacity 0.4s ease;
+  -o-transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease;
+}
+.crowdfund-carousel-partners .crowdfund-item img {
+  display: inline-block;
+  width: auto;
+}
+.crowdfund-carousel-partners .crowdfund-item:hover {
+  opacity: 1;
+}
+/*
+[12. Portfolio section / .crowdfund-section-portfolio]
+*/
+.crowdfund-section-portfolio {
+  overflow: hidden;
+}
+.crowdfund-section-portfolio .crowdfund-portfolio {
+  margin-bottom: 3rem;
+}
+.crowdfund-portfolio {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+/*
+[12.1 Portfolio filter / .crowdfund-portfolio-filter]
+*/
+.crowdfund-portfolio-filter {
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  margin: 1rem 0 4rem;
+  text-align: center;
+}
+.crowdfund-portfolio-filter .crowdfund-portfolio-filter-link {
+  padding: 0.5rem 0;
+  margin: 0 1rem;
+  color: #8e8e8e;
+  border-bottom: 2px solid transparent;
+  -webkit-transition: color 0.2s ease, border 0.5s ease;
+  -moz-transition: color 0.2s ease, border 0.5s ease;
+  -o-transition: color 0.2s ease, border 0.5s ease;
+  transition: color 0.2s ease, border 0.5s ease;
+}
+.crowdfund-portfolio-filter .crowdfund-portfolio-filter-link.crowdfund-active {
+  color: #d0301b;
+  border-bottom-color: #d0301b;
+}
+.crowdfund-section-color .crowdfund-portfolio-filter .crowdfund-portfolio-filter-link.crowdfund-active,
+body .crowdfund-block-color .crowdfund-portfolio-filter .crowdfund-portfolio-filter-link.crowdfund-active {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+.crowdfund-section-light .crowdfund-portfolio-filter .crowdfund-portfolio-filter-link.crowdfund-active,
+body .crowdfund-block-light .crowdfund-portfolio-filter .crowdfund-portfolio-filter-link.crowdfund-active {
+  color: #d0301b;
+  border-bottom-color: #d0301b;
+}
+.crowdfund-section-dark .crowdfund-portfolio-filter .crowdfund-portfolio-filter-link.crowdfund-active,
+body .crowdfund-block-dark .crowdfund-portfolio-filter .crowdfund-portfolio-filter-link.crowdfund-active {
+  color: #d0301b;
+  border-bottom-color: #d0301b;
+}
+.crowdfund-section-transparent .crowdfund-portfolio-filter .crowdfund-portfolio-filter-link.crowdfund-active,
+body .crowdfund-block-transparent .crowdfund-portfolio-filter .crowdfund-portfolio-filter-link.crowdfund-active {
+  color: #d0301b;
+  border-bottom-color: #d0301b;
+}
+.crowdfund-section-color .crowdfund-portfolio-filter .crowdfund-portfolio-filter-link,
+body .crowdfund-block-color .crowdfund-portfolio-filter .crowdfund-portfolio-filter-link {
+  color: rgba(255, 255, 255, 0.6);
+}
+.crowdfund-section-light .crowdfund-portfolio-filter .crowdfund-portfolio-filter-link,
+body .crowdfund-block-light .crowdfund-portfolio-filter .crowdfund-portfolio-filter-link {
+  color: #8e8e8e;
+}
+.crowdfund-section-dark .crowdfund-portfolio-filter .crowdfund-portfolio-filter-link,
+body .crowdfund-block-dark .crowdfund-portfolio-filter .crowdfund-portfolio-filter-link {
+  color: #8e8e8e;
+}
+.crowdfund-section-transparent .crowdfund-portfolio-filter .crowdfund-portfolio-filter-link,
+body .crowdfund-block-transparent .crowdfund-portfolio-filter .crowdfund-portfolio-filter-link {
+  color: #8e8e8e;
+}
+.crowdfund-portfolio-items {
+  width: 100%;
+}
+/*
+[12.2 Portfolio item / .crowdfund-portfolio-item]
+*/
+.crowdfund-portfolio-item {
+  display: none;
+  min-height: 5rem;
+  width: 33.33%;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: top 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28), left 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  -moz-transition: top 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28), left 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  -o-transition: top 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28), left 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  transition: top 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28), left 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-portfolio-item {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+  }
+}
+.crowdfund-portfolio-column-1 .crowdfund-portfolio-item {
+  width: 100%;
+}
+.crowdfund-portfolio-column-2 .crowdfund-portfolio-item {
+  width: 49.9%;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-portfolio-column-2 .crowdfund-portfolio-item {
+    width: 100%;
+  }
+}
+.crowdfund-portfolio-column-3 .crowdfund-portfolio-item {
+  width: 33.23%;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-portfolio-column-3 .crowdfund-portfolio-item {
+    width: 49.9%;
+  }
+}
+.crowdfund-portfolio-column-4 .crowdfund-portfolio-item {
+  width: 24.9%;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-portfolio-column-4 .crowdfund-portfolio-item {
+    width: 49.9%;
+  }
+}
+.crowdfund-portfolio-item .crowdfund-portfolio-item-container {
+  margin: 4px;
+  display: block;
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+}
+.crowdfund-section-color .crowdfund-portfolio-item .crowdfund-portfolio-item-container,
+body .crowdfund-block-color .crowdfund-portfolio-item .crowdfund-portfolio-item-container {
+  color: #fff;
+}
+.crowdfund-section-light .crowdfund-portfolio-item .crowdfund-portfolio-item-container,
+body .crowdfund-block-light .crowdfund-portfolio-item .crowdfund-portfolio-item-container {
+  color: #131516;
+}
+.crowdfund-section-dark .crowdfund-portfolio-item .crowdfund-portfolio-item-container,
+body .crowdfund-block-dark .crowdfund-portfolio-item .crowdfund-portfolio-item-container {
+  color: #fff;
+}
+.crowdfund-section-transparent .crowdfund-portfolio-item .crowdfund-portfolio-item-container,
+body .crowdfund-block-transparent .crowdfund-portfolio-item .crowdfund-portfolio-item-container {
+  color: #fff;
+}
+.crowdfund-portfolio-item .crowdfund-portfolio-item-container:hover .crowdfund-overlay {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+.crowdfund-portfolio-item img {
+  width: 100%;
+  display: block;
+}
+.crowdfund-portfolio-item .crowdfund-overlay {
+  color: #fff;
+  text-align: center;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity 0.4s ease;
+  -moz-transition: -moz-transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity 0.4s ease;
+  -o-transition: -o-transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity 0.4s ease;
+  transition: -webkit-transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28),-moz-transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28),-o-transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28),transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity 0.4s ease;
+}
+.crowdfund-portfolio-item .crowdfund-overlay:before {
+  content: "";
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.crowdfund-portfolio-item .crowdfund-overlay h5 {
+  font-weight: 700;
+}
+.crowdfund-portfolio-item .crowdfund-overlay .crowdfund-underline {
+  margin: 0.5rem 0 1rem;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.crowdfund-portfolio-item .crowdfund-overlay .crowdfund-underline:after {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.crowdfund-portfolio-item.crowdfund-active {
+  display: block;
+}
+.crowdfund-portfolio-item-content {
+  display: inline-block;
+  vertical-align: middle;
+  width: 90%;
+}
+/*
+[13. Price / .crowdfund-price-item]
+*/
+.crowdfund-price-item {
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(68, 68, 68, 0.02);
+}
+.crowdfund-price-item .crowdfund-underline {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: #bbb;
+  -webkit-transition: background 0.4s ease;
+  -moz-transition: background 0.4s ease;
+  -o-transition: background 0.4s ease;
+  transition: background 0.4s ease;
+}
+.crowdfund-price-item h2,
+.crowdfund-price-item h3 {
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+}
+.crowdfund-price-item h2 {
+  color: #d0301b;
+}
+.crowdfund-section-color .crowdfund-price-item h2,
+body .crowdfund-block-color .crowdfund-price-item h2 {
+  color: #fff;
+}
+.crowdfund-section-light .crowdfund-price-item h2,
+body .crowdfund-block-light .crowdfund-price-item h2 {
+  color: #444;
+}
+.crowdfund-section-dark .crowdfund-price-item h2,
+body .crowdfund-block-dark .crowdfund-price-item h2 {
+  color: #d0301b;
+}
+.crowdfund-section-transparent .crowdfund-price-item h2,
+body .crowdfund-block-transparent .crowdfund-price-item h2 {
+  color: #d0301b;
+}
+.crowdfund-price-item hr {
+  margin: 2rem 0 1.5rem;
+}
+.crowdfund-price-item .crowdfund-price-container {
+  margin-bottom: 2rem;
+}
+.crowdfund-price-item:hover h2,
+.crowdfund-price-item:hover h3 {
+  color: #d0301b;
+}
+.crowdfund-section-color .crowdfund-price-item:hover h2,
+.crowdfund-section-color .crowdfund-price-item:hover h3,
+body .crowdfund-block-color .crowdfund-price-item:hover h2,
+body .crowdfund-block-color .crowdfund-price-item:hover h3 {
+  color: #fff;
+}
+.crowdfund-section-light .crowdfund-price-item:hover h2,
+.crowdfund-section-light .crowdfund-price-item:hover h3,
+body .crowdfund-block-light .crowdfund-price-item:hover h2,
+body .crowdfund-block-light .crowdfund-price-item:hover h3 {
+  color: #d0301b;
+}
+.crowdfund-section-dark .crowdfund-price-item:hover h2,
+.crowdfund-section-dark .crowdfund-price-item:hover h3,
+body .crowdfund-block-dark .crowdfund-price-item:hover h2,
+body .crowdfund-block-dark .crowdfund-price-item:hover h3 {
+  color: #d0301b;
+}
+.crowdfund-section-transparent .crowdfund-price-item:hover h2,
+.crowdfund-section-transparent .crowdfund-price-item:hover h3,
+body .crowdfund-block-transparent .crowdfund-price-item:hover h2,
+body .crowdfund-block-transparent .crowdfund-price-item:hover h3 {
+  color: #d0301b;
+}
+.crowdfund-price-item:hover .crowdfund-underline {
+  background-color: #d0301b;
+}
+.crowdfund-section-color .crowdfund-price-item:hover .crowdfund-underline,
+body .crowdfund-block-color .crowdfund-price-item:hover .crowdfund-underline {
+  background-color: #fff;
+}
+.crowdfund-section-light .crowdfund-price-item:hover .crowdfund-underline,
+body .crowdfund-block-light .crowdfund-price-item:hover .crowdfund-underline {
+  background-color: #d0301b;
+}
+.crowdfund-section-dark .crowdfund-price-item:hover .crowdfund-underline,
+body .crowdfund-block-dark .crowdfund-price-item:hover .crowdfund-underline {
+  background-color: #d0301b;
+}
+.crowdfund-section-transparent .crowdfund-price-item:hover .crowdfund-underline,
+body .crowdfund-block-transparent .crowdfund-price-item:hover .crowdfund-underline {
+  background-color: #d0301b;
+}
+/*
+[14. Rewards / .crowdfund-rewards-table]
+*/
+.crowdfund-rewards-table .crowdfund-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.crowdfund-section-color .crowdfund-rewards-table .crowdfund-row,
+body .crowdfund-block-color .crowdfund-rewards-table .crowdfund-row {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+.crowdfund-section-light .crowdfund-rewards-table .crowdfund-row,
+body .crowdfund-block-light .crowdfund-rewards-table .crowdfund-row {
+  border-bottom-color: #ddd;
+}
+.crowdfund-section-dark .crowdfund-rewards-table .crowdfund-row,
+body .crowdfund-block-dark .crowdfund-rewards-table .crowdfund-row {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+.crowdfund-section-transparent .crowdfund-rewards-table .crowdfund-row,
+body .crowdfund-block-transparent .crowdfund-rewards-table .crowdfund-row {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+.crowdfund-rewards-table .crowdfund-row:last-child {
+  border: none;
+}
+.crowdfund-rewards-table .crowdfund-column {
+  padding: 1.2rem 1rem;
+}
+.crowdfund-rewards-table .crowdfund-column h5 {
+  margin-top: 0.3rem;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-rewards-table .crowdfund-column {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    vertical-align: top;
+  }
+}
+.crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-cost,
+.crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-description,
+.crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-icon {
+  color: #d0301b;
+}
+.crowdfund-section-color .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-cost,
+.crowdfund-section-color .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-description,
+.crowdfund-section-color .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-icon,
+body .crowdfund-block-color .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-cost,
+body .crowdfund-block-color .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-description,
+body .crowdfund-block-color .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-icon {
+  color: #fff;
+}
+.crowdfund-section-light .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-cost,
+.crowdfund-section-light .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-description,
+.crowdfund-section-light .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-icon,
+body .crowdfund-block-light .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-cost,
+body .crowdfund-block-light .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-description,
+body .crowdfund-block-light .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-icon {
+  color: #d0301b;
+}
+.crowdfund-section-dark .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-cost,
+.crowdfund-section-dark .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-description,
+.crowdfund-section-dark .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-icon,
+body .crowdfund-block-dark .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-cost,
+body .crowdfund-block-dark .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-description,
+body .crowdfund-block-dark .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-icon {
+  color: #d0301b;
+}
+.crowdfund-section-transparent .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-cost,
+.crowdfund-section-transparent .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-description,
+.crowdfund-section-transparent .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-icon,
+body .crowdfund-block-transparent .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-cost,
+body .crowdfund-block-transparent .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-description,
+body .crowdfund-block-transparent .crowdfund-rewards-table .crowdfund-radio:checked ~ .crowdfund-column-icon {
+  color: #d0301b;
+}
+.crowdfund-rewards-table .crowdfund-radio-toggle {
+  position: absolute;
+  top: 50%;
+  margin-top: -0.7rem;
+  left: 1rem;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-rewards-table .crowdfund-radio-toggle {
+    top: 0;
+    margin-top: 1.2rem;
+  }
+}
+.crowdfund-rewards-table .crowdfund-column-cost {
+  padding-left: 5rem;
+  min-width: 10rem;
+  width: 10rem;
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: #fff;
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-rewards-table .crowdfund-column-cost {
+    min-width: 7rem;
+    width: 7rem;
+  }
+}
+@media only screen
+														and (max-device-width: 1024px)
+														and (max-aspect-ratio: 13/9)  {
+  .crowdfund-rewards-table .crowdfund-column-cost {
+    min-width: 5rem;
+    width: 5rem;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-rewards-table .crowdfund-column-cost {
+    padding-left: 4rem;
+    min-width: 3rem;
+    width: 3rem;
+    padding-top: 1.2rem;
+  }
+}
+.crowdfund-section-color .crowdfund-rewards-table .crowdfund-column-cost,
+body .crowdfund-block-color .crowdfund-rewards-table .crowdfund-column-cost {
+  color: rgba(255, 255, 255, 0.6);
+}
+.crowdfund-section-light .crowdfund-rewards-table .crowdfund-column-cost,
+body .crowdfund-block-light .crowdfund-rewards-table .crowdfund-column-cost {
+  color: #444;
+}
+.crowdfund-section-dark .crowdfund-rewards-table .crowdfund-column-cost,
+body .crowdfund-block-dark .crowdfund-rewards-table .crowdfund-column-cost {
+  color: #fff;
+}
+.crowdfund-section-transparent .crowdfund-rewards-table .crowdfund-column-cost,
+body .crowdfund-block-transparent .crowdfund-rewards-table .crowdfund-column-cost {
+  color: #fff;
+}
+.crowdfund-rewards-table .crowdfund-column-description {
+  width: 100%;
+}
+.crowdfund-rewards-table .crowdfund-column-description h5 {
+  margin: 0;
+}
+.crowdfund-rewards-table .crowdfund-column-description p:last-child {
+  margin-bottom: 0;
+}
+.crowdfund-rewards-table .crowdfund-column-icon {
+  white-space: nowrap;
+  min-width: 10rem;
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: right;
+}
+@media only screen
+														and (max-device-width: 1024px)
+														and (max-aspect-ratio: 13/9)  {
+  .crowdfund-rewards-table .crowdfund-column-icon {
+    white-space: normal;
+  }
+}
+.crowdfund-rewards-table .crowdfund-column-icon i {
+  margin: 0 0.3rem;
+}
+@media only screen
+														and (max-device-width: 1024px)
+														and (max-aspect-ratio: 13/9)  {
+  .crowdfund-rewards-table .crowdfund-column-icon i {
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-rewards-table .crowdfund-column-icon {
+    display: none;
+  }
+}
+.crowdfund-section-color .crowdfund-rewards-table .crowdfund-column-icon,
+body .crowdfund-block-color .crowdfund-rewards-table .crowdfund-column-icon {
+  color: rgba(255, 255, 255, 0.5);
+}
+.crowdfund-section-light .crowdfund-rewards-table .crowdfund-column-icon,
+body .crowdfund-block-light .crowdfund-rewards-table .crowdfund-column-icon {
+  color: rgba(68, 68, 68, 0.5);
+}
+.crowdfund-section-dark .crowdfund-rewards-table .crowdfund-column-icon,
+body .crowdfund-block-dark .crowdfund-rewards-table .crowdfund-column-icon {
+  color: rgba(255, 255, 255, 0.5);
+}
+.crowdfund-section-transparent .crowdfund-rewards-table .crowdfund-column-icon,
+body .crowdfund-block-transparent .crowdfund-rewards-table .crowdfund-column-icon {
+  color: rgba(255, 255, 255, 0.5);
+}
+/*
+[15. Slider / .crowdfund-section-slider]
+*/
+.crowdfund-section-slider {
+  overflow: hidden;
+}
+/*
+[15.1 Default carousel / .crowdfund-carousel]
+*/
+.crowdfund-carousel {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.crowdfund-carousel .owl-controls {
+  position: relative;
+  z-index: 50;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.crowdfund-carousel .owl-dots {
+  width: 100%;
+  float: left;
+}
+.crowdfund-carousel .owl-dot {
+  display: inline-block;
+  width: 2rem;
+  height: 4rem;
+  position: relative;
+  text-align: center;
+}
+.crowdfund-carousel .owl-dot span {
+  display: inline-block;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  left: 50%;
+  top: 50%;
+  margin-left: -3px;
+  margin-top: -3px;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-backface-visibility: visible;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  border-radius: 100%;
+}
+.crowdfund-section-color .crowdfund-carousel .owl-dot span,
+body .crowdfund-block-color .crowdfund-carousel .owl-dot span {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.crowdfund-section-light .crowdfund-carousel .owl-dot span,
+body .crowdfund-block-light .crowdfund-carousel .owl-dot span {
+  background-color: rgba(27, 27, 27, 0.5);
+}
+.crowdfund-section-dark .crowdfund-carousel .owl-dot span,
+body .crowdfund-block-dark .crowdfund-carousel .owl-dot span {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.crowdfund-section-transparent .crowdfund-carousel .owl-dot span,
+body .crowdfund-block-transparent .crowdfund-carousel .owl-dot span {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.crowdfund-carousel .owl-dot:hover span {
+  margin: 0;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  margin-top: -6px;
+}
+.crowdfund-carousel .owl-dot:active span {
+  background-color: #d0301b;
+}
+.crowdfund-section-color .crowdfund-carousel .owl-dot:active span,
+body .crowdfund-block-color .crowdfund-carousel .owl-dot:active span {
+  background-color: #fff;
+}
+.crowdfund-section-light .crowdfund-carousel .owl-dot:active span,
+body .crowdfund-block-light .crowdfund-carousel .owl-dot:active span {
+  background-color: #d0301b;
+}
+.crowdfund-section-dark .crowdfund-carousel .owl-dot:active span,
+body .crowdfund-block-dark .crowdfund-carousel .owl-dot:active span {
+  background-color: #d0301b;
+}
+.crowdfund-section-transparent .crowdfund-carousel .owl-dot:active span,
+body .crowdfund-block-transparent .crowdfund-carousel .owl-dot:active span {
+  background-color: #d0301b;
+}
+.crowdfund-carousel .owl-dot.active span {
+  background-color: #fff;
+  margin: 0;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  margin-top: -6px;
+}
+.crowdfund-section-color .crowdfund-carousel .owl-dot.active span,
+body .crowdfund-block-color .crowdfund-carousel .owl-dot.active span {
+  background-color: #fff;
+}
+.crowdfund-section-light .crowdfund-carousel .owl-dot.active span,
+body .crowdfund-block-light .crowdfund-carousel .owl-dot.active span {
+  background-color: #d0301b;
+}
+.crowdfund-section-dark .crowdfund-carousel .owl-dot.active span,
+body .crowdfund-block-dark .crowdfund-carousel .owl-dot.active span {
+  background-color: #d0301b;
+}
+.crowdfund-section-transparent .crowdfund-carousel .owl-dot.active span,
+body .crowdfund-block-transparent .crowdfund-carousel .owl-dot.active span {
+  background-color: #d0301b;
+}
+.crowdfund-carousel .owl-prev,
+.crowdfund-carousel .owl-next {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  margin: 1rem 0.5rem;
+  background-color: #d0301b;
+  border-radius: 3px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+}
+.crowdfund-section-color .crowdfund-carousel .owl-prev,
+.crowdfund-section-color .crowdfund-carousel .owl-next,
+body .crowdfund-block-color .crowdfund-carousel .owl-prev,
+body .crowdfund-block-color .crowdfund-carousel .owl-next {
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background-color: transparent;
+}
+.crowdfund-section-light .crowdfund-carousel .owl-prev,
+.crowdfund-section-light .crowdfund-carousel .owl-next,
+body .crowdfund-block-light .crowdfund-carousel .owl-prev,
+body .crowdfund-block-light .crowdfund-carousel .owl-next {
+  background-color: #d0301b;
+}
+.crowdfund-section-dark .crowdfund-carousel .owl-prev,
+.crowdfund-section-dark .crowdfund-carousel .owl-next,
+body .crowdfund-block-dark .crowdfund-carousel .owl-prev,
+body .crowdfund-block-dark .crowdfund-carousel .owl-next {
+  background-color: #d0301b;
+}
+.crowdfund-section-transparent .crowdfund-carousel .owl-prev,
+.crowdfund-section-transparent .crowdfund-carousel .owl-next,
+body .crowdfund-block-transparent .crowdfund-carousel .owl-prev,
+body .crowdfund-block-transparent .crowdfund-carousel .owl-next {
+  background-color: #d0301b;
+}
+/*
+[15.2 Flyer carousel / .crowdfund-carousel-flyer]
+*/
+.crowdfund-carousel-flyer .owl-stage-outer {
+  overflow: visible;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.crowdfund-carousel-flyer .owl-item {
+  will-change: opacity;
+  -webkit-transition: opacity 0.3s ease, -webkit-transform 0.15s ease;
+  -moz-transition: opacity 0.3s ease, -moz-transform 0.15s ease;
+  -o-transition: opacity 0.3s ease, -o-transform 0.15s ease;
+  transition: opacity 0.3s ease,-webkit-transform 0.15s ease,-moz-transform 0.15s ease,-o-transform 0.15s ease,transform 0.15s ease;
+  opacity: 0;
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-carousel-flyer .owl-item {
+    opacity: 1;
+  }
+}
+.crowdfund-carousel-flyer .owl-item.active,
+.crowdfund-carousel-flyer .owl-item.animated {
+  opacity: 1;
+}
+.crowdfund-carousel-flyer.owl-grab .owl-item,
+.crowdfund-carousel-flyer.crowdfund-slider-translate .owl-item {
+  visibility: visible;
+  opacity: 0.5;
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -o-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  transform: scale(0.9);
+}
+.crowdfund-carousel-flyer.owl-grab .owl-item.active,
+.crowdfund-carousel-flyer.crowdfund-slider-translate .owl-item.active {
+  opacity: 1;
+}
+.crowdfund-carousel-flyer .owl-controls {
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-carousel-flyer .owl-controls {
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+}
+.crowdfund-carousel-flyer .owl-dots {
+  margin-top: 2rem;
+  position: absolute;
+  right: -3rem;
+  top: 0;
+  width: auto;
+  float: none;
+}
+.crowdfund-carousel-flyer .owl-dots .owl-dot {
+  display: block;
+  width: 3rem;
+  height: 2.5rem;
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-carousel-flyer .owl-dots .owl-dot {
+    display: inline-block;
+  }
+}
+.crowdfund-carousel-flyer .crowdfund-slide {
+  max-height: 90vh;
+  border-radius: 3px;
+  overflow: hidden;
+}
+/*
+[15.3 Slide item / .crowdfund-slide]
+*/
+.crowdfund-slide {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media only screen
+														and (max-device-width: 1024px)
+														and (max-aspect-ratio: 13/9)  {
+  .crowdfund-slide {
+    height: 500px;
+    overflow: hidden;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-slide {
+    overflow: hidden;
+  }
+}
+.crowdfund-slide .crowdfund-slide-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 22rem;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media only screen
+														and (max-device-width: 1024px)
+														and (max-aspect-ratio: 13/9)  {
+  .crowdfund-slide .crowdfund-slide-bg {
+    right: 0;
+    left: 0;
+  }
+}
+.crowdfund-slide .crowdfund-slide-info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 22rem;
+  padding: 4rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+@media only screen
+														and (max-device-width: 1024px)
+														and (max-aspect-ratio: 13/9)  {
+  .crowdfund-slide .crowdfund-slide-info {
+    width: 100%;
+    padding: 2rem;
+    overflow: hidden;
+    -webkit-transition: -webkit-transform 0.4s ease;
+    -moz-transition: -moz-transform 0.4s ease;
+    -o-transition: -o-transform 0.4s ease;
+    transition: -webkit-transform 0.4s ease,-moz-transform 0.4s ease,-o-transform 0.4s ease,transform 0.4s ease;
+    -webkit-transform: translateY(calc(100% - 5rem));
+    -moz-transform: translateY(calc(100% - 5rem));
+    -o-transform: translateY(calc(100% - 5rem));
+    -ms-transform: translateY(calc(100% - 5rem));
+    transform: translateY(calc(100% - 5rem));
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-slide .crowdfund-slide-info {
+    -webkit-transform: translateY(calc(100% - 5rem));
+    -moz-transform: translateY(calc(100% - 5rem));
+    -o-transform: translateY(calc(100% - 5rem));
+    -ms-transform: translateY(calc(100% - 5rem));
+    transform: translateY(calc(100% - 5rem));
+  }
+}
+@media only screen
+  																and (max-device-width: 736px)
+  																and (min-aspect-ratio: 13/9) {
+  .crowdfund-slide .crowdfund-slide-info {
+    -webkit-transform: translateY(calc(100% - 5rem));
+    -moz-transform: translateY(calc(100% - 5rem));
+    -o-transform: translateY(calc(100% - 5rem));
+    -ms-transform: translateY(calc(100% - 5rem));
+    transform: translateY(calc(100% - 5rem));
+  }
+}
+.crowdfund-slide .crowdfund-slide-info h5 {
+  margin-top: 2rem;
+}
+.crowdfund-slide.crowdfund-info-left .crowdfund-slide-bg {
+  left: 22rem;
+  right: 0;
+}
+@media only screen
+														and (max-device-width: 1024px)
+														and (max-aspect-ratio: 13/9)  {
+  .crowdfund-slide.crowdfund-info-left .crowdfund-slide-bg {
+    right: 0;
+    left: 0;
+  }
+}
+.crowdfund-slide.crowdfund-info-left .crowdfund-slide-info {
+  left: 0;
+  right: auto;
+}
+@media only screen
+														and (max-device-width: 1024px)
+														and (max-aspect-ratio: 13/9)  {
+  .crowdfund-slide.crowdfund-active-mobile .crowdfund-slide-info {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-slide.crowdfund-active-mobile .crowdfund-slide-info {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@media only screen
+														and (max-device-width: 1024px)
+														and (max-aspect-ratio: 13/9)  {
+  .crowdfund-slide-title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+/*
+[16. Statistic section / .crowdfund-section-statistic]
+*/
+.crowdfund-section-statistic {
+  font-size: 1.35rem;
+}
+.crowdfund-section-statistic .crowdfund-statistic-progress {
+  margin-top: 3rem;
+}
+.crowdfund-section-statistic .crowdfund-table .crowdfund-column {
+  width: 50%;
+}
+@media only screen
+														and (max-device-width: 1024px)
+														and (max-aspect-ratio: 13/9)  {
+  .crowdfund-section-statistic .crowdfund-table .crowdfund-column {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
+.crowdfund-statistic-info .crowdfund-row {
+  margin-top: 2rem;
+}
+.crowdfund-statistic-info .crowdfund-row:first-child {
+  margin-top: 0;
+}
+.crowdfund-statistic-info .crowdfund-row h2,
+.crowdfund-statistic-info .crowdfund-row h3 {
+  margin-right: 0.5rem;
+}
+.crowdfund-statistic-info .crowdfund-row .crowdfund-wrapper {
+  display: inline;
+  margin-right: 3rem;
+}
+.crowdfund-statistic-info .crowdfund-row .crowdfund-wrapper:last-child {
+  margin-right: 0;
+}
+.crowdfund-section-white .crowdfund-statistic-info {
+  color: #d0301b;
+}
+.crowdfund-statistic-percent {
+  position: relative;
+  font-weight: 400;
+  display: inline-block;
+  width: 100%;
+  font-size: 9.5rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  text-shadow: 0 0 0 rgba(0, 0, 0, 0.35);
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -o-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: -webkit-transform 1.5s ease, text-shadow 1.5s ease;
+  -moz-transition: -moz-transform 1.5s ease, text-shadow 1.5s ease;
+  -o-transition: -o-transform 1.5s ease, text-shadow 1.5s ease;
+  transition: -webkit-transform 1.5s ease,-moz-transform 1.5s ease,-o-transform 1.5s ease,transform 1.5s ease, text-shadow 1.5s ease;
+}
+.crowdfund-section-color .crowdfund-statistic-percent,
+body .crowdfund-block-color .crowdfund-statistic-percent {
+  color: #fff;
+}
+.crowdfund-section-light .crowdfund-statistic-percent,
+body .crowdfund-block-light .crowdfund-statistic-percent {
+  color: #d0301b;
+}
+.crowdfund-section-dark .crowdfund-statistic-percent,
+body .crowdfund-block-dark .crowdfund-statistic-percent {
+  color: #fff;
+}
+.crowdfund-section-transparent .crowdfund-statistic-percent,
+body .crowdfund-block-transparent .crowdfund-statistic-percent {
+  color: #fff;
+}
+.crowdfund-statistic-percent .crowdfund-statistic-percent-symbol {
+  font-size: 70%;
+}
+.crowdfund-statistic-percent.crowdfund-scroll-active {
+  text-shadow: 0 25px 1px rgba(0, 0, 0, 0.15);
+  -webkit-transform: translateY(-20px);
+  -moz-transform: translateY(-20px);
+  -o-transform: translateY(-20px);
+  -ms-transform: translateY(-20px);
+  transform: translateY(-20px);
+}
+@media only screen
+														and (max-device-width: 1024px)
+														and (max-aspect-ratio: 13/9)  {
+  .crowdfund-statistic-percent {
+    font-size: 7rem;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-statistic-percent {
+    font-size: 4rem;
+  }
+}
+.crowdfund-statistic-progress {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.crowdfund-statistic-progress .crowdfund-statistic-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 2px;
+  width: 0;
+  background-color: #fff;
+  -webkit-transition: width 1.5s ease;
+  -moz-transition: width 1.5s ease;
+  -o-transition: width 1.5s ease;
+  transition: width 1.5s ease;
+}
+.crowdfund-statistic-progress .crowdfund-statistic-bar:not(.crowdfund-scroll-active) {
+  width: 0 !important;
+}
+.crowdfund-section-color .crowdfund-statistic-progress .crowdfund-statistic-bar,
+body .crowdfund-block-color .crowdfund-statistic-progress .crowdfund-statistic-bar {
+  background-color: #fff;
+}
+.crowdfund-section-light .crowdfund-statistic-progress .crowdfund-statistic-bar,
+body .crowdfund-block-light .crowdfund-statistic-progress .crowdfund-statistic-bar {
+  background-color: #d0301b;
+}
+.crowdfund-section-dark .crowdfund-statistic-progress .crowdfund-statistic-bar,
+body .crowdfund-block-dark .crowdfund-statistic-progress .crowdfund-statistic-bar {
+  background-color: #fff;
+}
+.crowdfund-section-transparent .crowdfund-statistic-progress .crowdfund-statistic-bar,
+body .crowdfund-block-transparent .crowdfund-statistic-progress .crowdfund-statistic-bar {
+  background-color: #fff;
+}
+.crowdfund-countdown-full {
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.3;
+  margin: 2rem 1rem 1rem;
+}
+.crowdfund-countdown-full span {
+  font-size: 140%;
+  font-weight: 700;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-countdown-full {
+    font-size: 1.7rem;
+  }
+}
+/*
+[17. Team carousel / .crowdfund-carousel-team]
+*/
+.crowdfund-carousel-team {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-carousel-team {
+    width: auto;
+    margin-left: -2rem;
+    margin-right: -2rem;
+  }
+}
+.crowdfund-carousel-team .crowdfund-slide {
+  height: 520px;
+  min-width: 300px;
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-carousel-team .crowdfund-slide {
+    height: 600px;
+  }
+}
+.crowdfund-carousel-team .crowdfund-slide .crowdfund-info {
+  padding: 2rem 1.7rem;
+}
+.crowdfund-carousel-team .crowdfund-slide .crowdfund-info .crowdfund-header {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  position: absolute;
+  will-change: transform;
+  top: 90%;
+  z-index: 50;
+  letter-spacing: 0.05rem;
+  -webkit-transition: top 0.4s ease;
+  -moz-transition: top 0.4s ease;
+  -o-transition: top 0.4s ease;
+  transition: top 0.4s ease;
+}
+.crowdfund-carousel-team .crowdfund-slide .crowdfund-overlay {
+  color: #fff;
+  will-change: transform;
+  opacity: 1;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+  -webkit-transition: -webkit-transform 0.4s ease;
+  -moz-transition: -moz-transform 0.4s ease;
+  -o-transition: -o-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease,-moz-transform 0.4s ease,-o-transform 0.4s ease,transform 0.4s ease;
+}
+.crowdfund-carousel-team .crowdfund-slide .crowdfund-overlay .crowdfund-icon-container {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding-left: 1.7rem;
+  padding-right: 1.7rem;
+  box-sizing: border-box;
+}
+.crowdfund-carousel-team .crowdfund-slide .crowdfund-overlay .crowdfund-icon {
+  display: inline-block;
+  width: 3.8rem;
+  height: 3.8rem;
+  line-height: 3.8rem;
+  font-size: 1.52rem;
+}
+.crowdfund-carousel-team .crowdfund-slide .crowdfund-overlay .crowdfund-icon:before {
+  top: 1.9rem;
+  left: 1.9rem;
+}
+.crowdfund-carousel-team .crowdfund-slide .crowdfund-overlay .crowdfund-icon:hover:before {
+  width: 4.8rem;
+  height: 4.8rem;
+  left: -0.5rem;
+  top: -0.5rem;
+}
+.crowdfund-carousel-team .crowdfund-slide:hover .crowdfund-header {
+  top: 2rem;
+}
+.crowdfund-carousel-team .crowdfund-slide:hover .crowdfund-overlay {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -o-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+}
+.crowdfund-carousel-team .crowdfund-slide .crowdfund-container {
+  padding: 4.5rem 0.7rem 0.7rem;
+}
+.crowdfund-carousel-team .crowdfund-slide .crowdfund-container h4 {
+  font-weight: 400;
+}
+/*
+[18. Testimonials carousel / .crowdfund-carousel-testimonials]
+*/
+.crowdfund-carousel-testimonials .crowdfund-item img {
+  width: auto;
+}
+.crowdfund-carousel-testimonials .crowdfund-column {
+  padding: 1rem;
+  vertical-align: top;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-carousel-testimonials .crowdfund-column {
+    display: inline-block;
+  }
+}
+.crowdfund-carousel-testimonials .crowdfund-avatar {
+  width: 8.8rem;
+  height: 8.8rem;
+  position: relative;
+  border-radius: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.crowdfund-carousel-testimonials .crowdfund-avatar:before {
+  content: "";
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  display: inline-block;
+  left: -0.6rem;
+  top: -0.6rem;
+  margin-left: -3px;
+  margin-top: -3px;
+  border-radius: 100%;
+  border: 3px solid #ddd;
+  border-color: #d0301b;
+}
+.crowdfund-section-color .crowdfund-carousel-testimonials .crowdfund-avatar:before,
+body .crowdfund-block-color .crowdfund-carousel-testimonials .crowdfund-avatar:before {
+  border-color: rgba(27, 27, 27, 0.2);
+}
+.crowdfund-section-light .crowdfund-carousel-testimonials .crowdfund-avatar:before,
+body .crowdfund-block-light .crowdfund-carousel-testimonials .crowdfund-avatar:before {
+  border-color: #d0301b;
+}
+.crowdfund-section-dark .crowdfund-carousel-testimonials .crowdfund-avatar:before,
+body .crowdfund-block-dark .crowdfund-carousel-testimonials .crowdfund-avatar:before {
+  border-color: #d0301b;
+}
+.crowdfund-section-transparent .crowdfund-carousel-testimonials .crowdfund-avatar:before,
+body .crowdfund-block-transparent .crowdfund-carousel-testimonials .crowdfund-avatar:before {
+  border-color: #d0301b;
+}
+.crowdfund-carousel-testimonials .crowdfund-avatar i {
+  width: 3.6rem;
+  height: 3.6rem;
+  line-height: 3.6rem;
+  font-size: 1.35rem;
+  text-align: center;
+  position: absolute;
+  right: -0.8rem;
+  bottom: -0.8rem;
+  background-color: #d0301b;
+  color: #fff;
+  border-radius: 100%;
+}
+.crowdfund-carousel-testimonials .crowdfund-column-testimonial {
+  text-align: left;
+  padding-left: 3rem;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-carousel-testimonials .crowdfund-column-testimonial {
+    padding: 2rem 0 1rem;
+  }
+}
+/*
+[19. Timeline section / .crowdfund-section-timeline]
+*/
+.crowdfund-table-timeline .crowdfund-column {
+  vertical-align: top;
+  padding: 0.5rem 1rem 0;
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-table-timeline .crowdfund-column {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+.crowdfund-table-timeline .crowdfund-column h3:first-child {
+  margin-top: 0.3rem;
+}
+.crowdfund-table-timeline .crowdfund-column h4:first-child {
+  margin-top: 0.4rem;
+}
+.crowdfund-table-timeline .crowdfund-column h5:first-child {
+  margin-top: 0.6rem;
+}
+.crowdfund-table-timeline .crowdfund-column-year {
+  width: 10rem;
+  text-align: right;
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-table-timeline .crowdfund-column-year {
+    width: 7rem;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-table-timeline .crowdfund-column-year {
+    text-align: left;
+    width: auto;
+    display: inline-block;
+    float: left;
+  }
+}
+.crowdfund-table-timeline .crowdfund-column-year h1,
+.crowdfund-table-timeline .crowdfund-column-year h2,
+.crowdfund-table-timeline .crowdfund-column-year h3,
+.crowdfund-table-timeline .crowdfund-column-year h4,
+.crowdfund-table-timeline .crowdfund-column-year h5,
+.crowdfund-table-timeline .crowdfund-column-year h6 {
+  margin-bottom: 0.2rem;
+  font-weight: 400;
+}
+.crowdfund-table-timeline .crowdfund-column-month {
+  width: 10rem;
+  color: #8e8e8e;
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-table-timeline .crowdfund-column-month {
+    width: 8rem;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-table-timeline .crowdfund-column-month {
+    text-align: left;
+    width: auto;
+    display: inline-block;
+    float: left;
+    padding-left: 0;
+  }
+}
+.crowdfund-section-color .crowdfund-table-timeline .crowdfund-column-month,
+body .crowdfund-block-color .crowdfund-table-timeline .crowdfund-column-month {
+  color: rgba(255, 255, 255, 0.6);
+}
+.crowdfund-section-light .crowdfund-table-timeline .crowdfund-column-month,
+body .crowdfund-block-light .crowdfund-table-timeline .crowdfund-column-month {
+  color: #8e8e8e;
+}
+.crowdfund-section-dark .crowdfund-table-timeline .crowdfund-column-month,
+body .crowdfund-block-dark .crowdfund-table-timeline .crowdfund-column-month {
+  color: rgba(255, 255, 255, 0.6);
+}
+.crowdfund-section-transparent .crowdfund-table-timeline .crowdfund-column-month,
+body .crowdfund-block-transparent .crowdfund-table-timeline .crowdfund-column-month {
+  color: #8e8e8e;
+}
+.crowdfund-table-timeline .crowdfund-column-description {
+  padding-left: 3rem;
+}
+@media only screen
+									and (max-device-width: 1024px) {
+  .crowdfund-table-timeline .crowdfund-column-description {
+    padding-left: 1.5rem;
+  }
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-table-timeline .crowdfund-column-description {
+    display: inline-block;
+    padding-bottom: 1.5rem;
+  }
+}
+.crowdfund-table-timeline .crowdfund-column-dot {
+  overflow: hidden;
+  padding: 0 0.5rem;
+}
+@media only screen
+  											and (max-device-width: 736px) {
+  .crowdfund-table-timeline .crowdfund-column-dot {
+    display: none;
+  }
+}
+.crowdfund-table-timeline .crowdfund-column-dot .crowdfund-vertline {
+  top: 0;
+  background-color: #d0301b;
+  z-index: 1;
+}
+.crowdfund-section-color .crowdfund-table-timeline .crowdfund-column-dot .crowdfund-vertline,
+body .crowdfund-block-color .crowdfund-table-timeline .crowdfund-column-dot .crowdfund-vertline {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.crowdfund-section-light .crowdfund-table-timeline .crowdfund-column-dot .crowdfund-vertline,
+body .crowdfund-block-light .crowdfund-table-timeline .crowdfund-column-dot .crowdfund-vertline {
+  background-color: #bbb;
+}
+.crowdfund-section-dark .crowdfund-table-timeline .crowdfund-column-dot .crowdfund-vertline,
+body .crowdfund-block-dark .crowdfund-table-timeline .crowdfund-column-dot .crowdfund-vertline {
+  background-color: #444;
+}
+.crowdfund-section-transparent .crowdfund-table-timeline .crowdfund-column-dot .crowdfund-vertline,
+body .crowdfund-block-transparent .crowdfund-table-timeline .crowdfund-column-dot .crowdfund-vertline {
+  background-color: #bbb;
+}
+.crowdfund-table-timeline .crowdfund-timeline-dot {
+  margin-top: 1.7rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  display: inline-block;
+  position: relative;
+  z-index: 20;
+  background-color: #d0301b;
+  border-radius: 50%;
+}
+.crowdfund-section-color .crowdfund-table-timeline .crowdfund-timeline-dot,
+body .crowdfund-block-color .crowdfund-table-timeline .crowdfund-timeline-dot {
+  background-color: #fff;
+}
+.crowdfund-section-light .crowdfund-table-timeline .crowdfund-timeline-dot,
+body .crowdfund-block-light .crowdfund-table-timeline .crowdfund-timeline-dot {
+  background-color: #bbb;
+}
+.crowdfund-section-dark .crowdfund-table-timeline .crowdfund-timeline-dot,
+body .crowdfund-block-dark .crowdfund-table-timeline .crowdfund-timeline-dot {
+  background-color: #444;
+}
+.crowdfund-section-transparent .crowdfund-table-timeline .crowdfund-timeline-dot,
+body .crowdfund-block-transparent .crowdfund-table-timeline .crowdfund-timeline-dot {
+  background-color: #bbb;
+}
+/*
+[20. Title section / .crowdfund-section-title]
+*/
+.crowdfund-section-title h1 {
+  margin: 2rem 0 3rem;
+}
+.crowdfund-section-title h4 {
+  font-weight: 300;
+}
+.crowdfund-section-title .crowdfund-underline {
+  margin-bottom: 0;
+}
+/*
+[21. UI section / .crowdfund-section-ui]
+*/
+.crowdfund-section-ui .crowdfund-row {
+  margin-bottom: 1rem;
+}
+.crowdfund-grid-demo {
+  margin-top: 2rem;
+}
+.crowdfund-grid-demo .crowdfund-row {
+  margin-bottom: 0;
+}
+.crowdfund-grid-demo .crowdfund-col + .crowdfund-col {
+  padding-left: 0.5rem;
+}
+.crowdfund-grid-demo .crowdfund-col-1 .crowdfund-grid-item {
+  margin-bottom: 0.2rem;
+  padding: 0.5rem 0.2rem;
+}
+.crowdfund-grid-item {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 0.5rem;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  white-space: nowrap;
+  margin: 0.2rem 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+}
+.crowdfund-grid-item:hover {
+  background-color: #8e8e8e;
+}
+/*
+[22. Video section / .crowdfund-section-video]
+*/
+.crowdfund-section-video {
+  max-width: 100%;
+  height: auto;
+}
